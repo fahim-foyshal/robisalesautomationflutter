@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:robisalesautomation/detailedfeatures.dart';
 
 class DistributerList extends StatefulWidget {
   const DistributerList({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class DistributerList extends StatefulWidget {
       distributrcode: 'ADFD86678',
       image:
           'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
+
     ),
     DistributorData(
       distributrname: "fahim foysal",
@@ -195,7 +197,10 @@ class _DistributerListState extends State<DistributerList> {
                         .distributorDataList[index].distributrcode,
                     image: DistributerList.distributorDataList[index].image,
                     onTap: () {
-                      // Handle card tap if needed
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Detailedfeatures(),),
+                      );
                     },
                   ),
                 ),
