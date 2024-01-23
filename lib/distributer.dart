@@ -14,66 +14,11 @@ class DistributerList extends StatefulWidget {
           'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
     ),
     DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
+      distributrname: "Ashraful Haque",
+      distributrcode: 'BDFD86678',
       image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
+          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/323553409_520959646495059_5922646752088678591_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFZ5dXqQPcCmvhQuj6tsOXs-JQG_R9H___4lAb9H0f___6EqxLO61gfEoO_EygJ3LXcndjUvZqeBEhT8-k-a4uz&_nc_ohc=W_tU1BSKJzsAX8jJ7L9&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfBpfLucfSrP5s6WPFbUmBEWLgvWuav_98zCyHtJFz960g&oe=65B3E231',
     ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    DistributorData(
-      distributrname: "fahim foysal",
-      distributrcode: 'ADFD86678',
-      image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-    ),
-    // Add more DistributorData objects as needed
   ];
 }
 
@@ -89,13 +34,39 @@ class DistributorData {
   });
 }
 
-class _DistributerListState extends State<DistributerList> {
+class _DistributerListState extends State<DistributerList>
+    with SingleTickerProviderStateMixin {
   bool isFilterSheetVisible = false;
+  final TextEditingController searchController = TextEditingController();
+  List<DistributorData> filteredList = [];
+  late AnimationController _animationController;
+  late Animation<Offset> _slideAnimation;
 
   void handleBottomSheetPress() {
     setState(() {
       isFilterSheetVisible = true;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the filteredList with the original data
+    filteredList = List.from(DistributerList.distributorDataList);
+
+    // Animation setup
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    _slideAnimation = Tween<Offset>(
+      begin: Offset(1.0, 0.0),
+      end: Offset.zero,
+    ).animate(CurvedAnimation(
+      parent: _animationController,
+      curve: Curves.easeInOut,
+    ));
+
+    // Start animation when the widget is first built
+    _animationController.forward();
   }
 
   @override
@@ -115,12 +86,12 @@ class _DistributerListState extends State<DistributerList> {
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 248, 56, 88),
               borderRadius: BorderRadius.only(),
-            ), // Set the width to the screen width
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  width: screenWidth - 120, // Adjusted width for search box
+                  width: screenWidth - 120,
                   height: 40,
                   padding: EdgeInsets.only(left: 8),
                   decoration: BoxDecoration(
@@ -130,18 +101,37 @@ class _DistributerListState extends State<DistributerList> {
                   child: Row(
                     children: [
                       Container(
-                        color: Colors.white, // White background for the icon
+                        color: Colors.white,
                         child: const FaIcon(FontAwesomeIcons.search,
                             size: 25, color: Colors.grey),
                       ),
                       const SizedBox(width: 8),
-                      const Expanded(
+                      Expanded(
                         child: TextField(
+                          controller: searchController,
                           decoration: InputDecoration(
-                            hintText: 'Search for distributer',
+                            hintText: 'Search for distributor',
                             border: InputBorder.none,
                           ),
                           keyboardType: TextInputType.text,
+                          onChanged: (value) {
+                            setState(() {
+                              // Filter the distributorDataList based on the search input
+                              filteredList = DistributerList.distributorDataList
+                                  .where((distributor) =>
+                                      distributor.distributrname
+                                          .toLowerCase()
+                                          .contains(value.toLowerCase()) ||
+                                      distributor.distributrcode
+                                          .toLowerCase()
+                                          .contains(value.toLowerCase()))
+                                  .toList();
+
+                              // Reset animation when filtering
+                              _animationController.reset();
+                              _animationController.forward();
+                            });
+                          },
                         ),
                       ),
                     ],
@@ -162,38 +152,17 @@ class _DistributerListState extends State<DistributerList> {
               ],
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: Column(
-          //     children: [
-          //       buildCard(
-          //         distributrname: "fahim foysal",
-          //         distributrcode: 'ADFD86678',
-          //         image:
-          //             'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-          //         onTap: () {
-          //           // Navigator.push(
-          //           //   context,
-          //           //   MaterialPageRoute(builder: (context) => DistributerList()),
-          //           // );
-          //         },
-          //       ),
-          //     ],
-          //   ),
-          // ),
-
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: ListView(
-                children: List.generate(
-                  DistributerList.distributorDataList.length,
-                  (index) => buildCard(
-                    distributrname: DistributerList
-                        .distributorDataList[index].distributrname,
-                    distributrcode: DistributerList
-                        .distributorDataList[index].distributrcode,
-                    image: DistributerList.distributorDataList[index].image,
+              child: SlideTransition(
+                position: _slideAnimation,
+                child: ListView.builder(
+                  itemCount: filteredList.length,
+                  itemBuilder: (context, index) => buildCard(
+                    distributrname: filteredList[index].distributrname,
+                    distributrcode: filteredList[index].distributrcode,
+                    image: filteredList[index].image,
                     onTap: () {
                       // Handle card tap if needed
                     },
