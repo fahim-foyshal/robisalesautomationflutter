@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:robisalesautomation/model/DistributorData.dart';
 
 class Detailedfeatures extends StatefulWidget {
-  const Detailedfeatures({Key? key}) : super(key: key);
+  final DistributorData distributorData;
+  const Detailedfeatures({Key? key, required this.distributorData})
+      : super(key: key);
 
   @override
   State<Detailedfeatures> createState() => _DetailedfeaturesState();
@@ -11,6 +14,7 @@ class Detailedfeatures extends StatefulWidget {
 class _DetailedfeaturesState extends State<Detailedfeatures> {
   @override
   Widget build(BuildContext context) {
+    DistributorData distributorData = widget.distributorData;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -53,8 +57,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
-                          child: Image.network(
-                              'https://example.com/your_image_path.jpg'),
+                          child: Image.network(distributorData.image),
                         ),
                         // Text in the middle
                         Column(
@@ -64,7 +67,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                               padding: EdgeInsets.all(8),
                             ),
                             Text(
-                              'John Doe',
+                              distributorData.distributrname,
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -74,23 +77,23 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                             Text(
                               'Code:000000',
                               style:
-                              TextStyle(fontSize: 12, color: Colors.white),
+                                  TextStyle(fontSize: 12, color: Colors.white),
                             ),
                             Text(
                               'Credit Limit:00000000.0',
                               style:
-                              TextStyle(fontSize: 12, color: Colors.white),
+                                  TextStyle(fontSize: 12, color: Colors.white),
                             ),
                             Text(
                               'Due:0000000',
                               style:
-                              TextStyle(fontSize: 12, color: Colors.white),
+                                  TextStyle(fontSize: 12, color: Colors.white),
                             ),
                             Text(
                               'Available Credit Limit :000000000.0000000000000',
                               softWrap: true,
                               style:
-                              TextStyle(fontSize: 12, color: Colors.white),
+                                  TextStyle(fontSize: 12, color: Colors.white),
                             ),
                           ],
                         ),
@@ -171,12 +174,11 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
               ],
             ),
           ],
-
         ),
-
       ),
     );
   }
+
   Widget buildCard({
     required IconData icon,
     required Color color,
