@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robisalesautomation/model/DistributorData.dart';
+import 'package:robisalesautomation/view/orderdelivery.dart';
+import 'package:robisalesautomation/view/tourplanadd.dart';
 
 class Detailedfeatures extends StatefulWidget {
   final DistributorData distributorData;
+
   const Detailedfeatures({Key? key, required this.distributorData})
       : super(key: key);
 
@@ -35,83 +38,84 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.only(top: 8),
-              child: Stack(
-                children: [
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(18),
-                      color: Color.fromARGB(255, 248, 56, 88),
+            Stack(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(left: 8, right: 8, bottom: 8),
+                  height: 150,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(20.0),
+                      bottomRight: Radius.circular(20.0),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        //image Container
-                        Container(
-                          width: 60,
-                          height: 60,
-                          padding: EdgeInsets.only(left: 8),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 248, 56, 88),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      //image Container
+                      Container(
+                        width: 80,
+                        height: 80,
+                        padding: EdgeInsets.only(left: 8),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: ClipOval(
+                          child: Image.network(
+                            distributorData.image,
+                            fit: BoxFit.cover,
                           ),
-                          child: Image.network(distributorData.image),
                         ),
-                        // Text in the middle
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(8),
-                            ),
-                            Text(
-                              distributorData.distributrname,
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                            Text(
-                              'Code:000000',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                            Text(
-                              'Credit Limit:00000000.0',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                            Text(
-                              'Due:0000000',
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                            Text(
-                              'Available Credit Limit :000000000.0000000000000',
-                              softWrap: true,
-                              style:
-                                  TextStyle(fontSize: 12, color: Colors.white),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    top: 4,
-                    right: 4,
-                    child: Container(
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.arrow_drop_down_circle_outlined),
                       ),
+                      // Text in the middle
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(8),
+                          ),
+                          Text(
+                            "Name:${distributorData.distributrname}",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            distributorData.distributrcode,
+                            style: TextStyle(fontSize: 12, color: Colors.white),
+                          ),
+                          Text(
+                            'Credit Limit:00000000.0',
+                            style: TextStyle(fontSize: 12, color: Colors.white),
+                          ),
+                          Text(
+                            'Due:0000000',
+                            style: TextStyle(fontSize: 12, color: Colors.white),
+                          ),
+                          Text(
+                            'Available Credit Limit :000000000.0000000000000',
+                            softWrap: true,
+                            style: TextStyle(fontSize: 12, color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 4,
+                  right: 4,
+                  child: Container(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_drop_down_circle_outlined),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Wrap(
               alignment: WrapAlignment.start,
@@ -119,26 +123,33 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
               runSpacing: 10,
               children: [
                 buildCard(
-                  icon: FontAwesomeIcons.building,
+                  icon: FontAwesomeIcons.cartPlus,
                   color: Colors.purple,
                   text: 'Add Order',
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => DistributerList()),
-                    // );
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Tourplanadd()),
+                    );
                   },
                 ),
                 buildCard(
-                  icon: FontAwesomeIcons.shop,
+                  icon: FontAwesomeIcons.list,
                   color: const Color(0xFFD9EDBF),
                   text: 'Order List',
                   onTap: () {
-                    // Add navigation logic here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Orderdelivery(
+
+                        ),
+                      ),
+                    );
                   },
                 ),
                 buildCard(
-                  icon: FontAwesomeIcons.bullseye,
+                  icon: FontAwesomeIcons.mapLocationDot,
                   color: const Color(0xFF6B240C),
                   text: 'Update Location',
                   onTap: () {
@@ -146,7 +157,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                   },
                 ),
                 buildCard(
-                  icon: FontAwesomeIcons.info,
+                  icon: FontAwesomeIcons.fileInvoiceDollar,
                   color: const Color(0xFFFF4A4F),
                   text: 'Payment List',
                   onTap: () {
@@ -154,7 +165,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                   },
                 ),
                 buildCard(
-                  icon: FontAwesomeIcons.mapLocation,
+                  icon: FontAwesomeIcons.clipboardList,
                   color: Colors.blueAccent,
                   text: 'Stock List',
                   onTap: () {
@@ -162,7 +173,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                   },
                 ),
                 buildCard(
-                  icon: FontAwesomeIcons.moneyBillWave,
+                  icon: FontAwesomeIcons.listCheck,
                   color: const Color(0xFF365486),
                   text: 'Visit List',
                   onTap: () {
@@ -191,7 +202,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
         width: MediaQuery.of(context).size.width / 3 - 10 * 2,
         height: 120,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
           color: Colors.white,
           boxShadow: const [
             BoxShadow(
