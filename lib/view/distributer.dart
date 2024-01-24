@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:robisalesautomation/detailedfeatures.dart';
+import 'package:robisalesautomation/model/DistributorData.dart';
+import 'package:robisalesautomation/view/detailedfeatures.dart';
 
 class DistributerList extends StatefulWidget {
   const DistributerList({Key? key}) : super(key: key);
@@ -13,7 +14,6 @@ class DistributerList extends StatefulWidget {
       distributrcode: 'ADFD86678',
       image:
           'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-
     ),
     DistributorData(
       distributrname: "Ashraful Haque",
@@ -24,17 +24,17 @@ class DistributerList extends StatefulWidget {
   ];
 }
 
-class DistributorData {
-  final String distributrname;
-  final String distributrcode;
-  final String image;
+// class DistributorData {
+//   final String distributrname;
+//   final String distributrcode;
+//   final String image;
 
-  DistributorData({
-    required this.distributrname,
-    required this.distributrcode,
-    required this.image,
-  });
-}
+//   DistributorData({
+//     required this.distributrname,
+//     required this.distributrcode,
+//     required this.image,
+//   });
+// }
 
 class _DistributerListState extends State<DistributerList>
     with SingleTickerProviderStateMixin {
@@ -168,7 +168,11 @@ class _DistributerListState extends State<DistributerList>
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Detailedfeatures(),),
+                        MaterialPageRoute(
+                          builder: (context) => Detailedfeatures(
+                            distributorData: filteredList[index],
+                          ),
+                        ),
                       );
                     },
                   ),

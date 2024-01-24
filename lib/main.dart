@@ -1,8 +1,8 @@
 // import 'package:employe_portal/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:robisalesautomation/homepage.dart';
+import 'package:robisalesautomation/view/homepage.dart';
 
-import 'detailedfeatures.dart';
+import 'view/detailedfeatures.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -10,6 +10,5 @@ void main() {
     initialRoute: 'homepage',
     routes: {'homepage': (context) => Homepage()},
     // routes: {'homepage': (context) => Detailedfeatures()},
-
   ));
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:robisalesautomation/distributer.dart';
+import 'package:robisalesautomation/view/distributer.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
