@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:robisalesautomation/view/Attendance%20.dart';
 import 'package:robisalesautomation/view/distributer.dart';
 
 class Homepage extends StatefulWidget {
@@ -40,9 +41,11 @@ class _HomepageState extends State<Homepage> {
                     borderRadius: BorderRadius.circular(25),
                   ),
                   // You can replace the Image.network with your actual image loading logic
-                  child: Image.network(
-                    'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-                    fit: BoxFit.cover,
+                  child: ClipOval(
+                    child: Image.network(
+                      'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -198,7 +201,10 @@ class _HomepageState extends State<Homepage> {
                 color: const Color(0xFFC85250),
                 text: 'Attendance',
                 onTap: () {
-                  // Add navigation logic here
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Attendance()),
+                  );
                 },
               ),
               buildCard(
@@ -228,7 +234,7 @@ class _HomepageState extends State<Homepage> {
       onTap: onTap,
       child: Container(
         width: MediaQuery.of(context).size.width / 3 - 10 * 2,
-        height: 120,
+        height: MediaQuery.of(context).size.height / 6 - 10 * 2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,

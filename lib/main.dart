@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:robisalesautomation/view/homepage.dart';
 
-import 'view/detailedfeatures.dart';
-
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
