@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 import 'package:robisalesautomation/view/homepage.dart';
+import 'package:robisalesautomation/view/loginpage.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
 
 
@@ -10,7 +11,7 @@ void main() {
     theme: new ThemeData(scaffoldBackgroundColor: Appcolors.lightwhite),
     debugShowCheckedModeBanner: false,
     initialRoute: 'homepage',
-    routes: {'homepage': (context) => Homepage()},
+    routes: {'homepage': (context) => loginpage()},
   ));
 
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robisalesautomation/main.dart';
 import 'package:robisalesautomation/model/DistributorData.dart';
+import 'package:robisalesautomation/view/openshops.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
 import 'package:robisalesautomation/view/tourplanadd.dart';
 
@@ -158,7 +159,14 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                     color: const Color(0xFF6B240C),
                     text: 'Update Location',
                     onTap: () {
-                      // Add navigation logic here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddShopPage(
+
+                          ),
+                        ),
+                      );
                     },
                   ),
                   buildCard(
