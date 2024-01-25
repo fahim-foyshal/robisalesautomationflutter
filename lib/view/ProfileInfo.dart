@@ -35,7 +35,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
             padding: EdgeInsets.all(16.0),
             child: Card(
               elevation: 5,
-              color: const Color.fromARGB(255, 248, 56, 88),
+              color: Appcolors.primary,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -227,9 +227,52 @@ class _ProfileInfoState extends State<ProfileInfo> {
          ),
          //--->>>>>>>>4rd container start
           Container(
-            child: Column(children: [
-           
+            width: 330,
+            child:Card(
+            child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                   Padding(
+                        padding: const EdgeInsets.all(16.0), // Adjust bottom padding as needed
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 8.0),
+                            Text(
+                              'Name:Ruhul Amin',
+                              style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontFamily: "monospace",
+                          ), 
+                            ),
+                            SizedBox(height: 8.0),
+                            Text(
+                              'Designation:Null',
+                              style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontFamily: "monospace",
+                          ), 
+                            ),
+                            SizedBox(height: 8.0),
+                            Text(
+                            'Code:0034',
+                            style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            fontFamily: "monospace",
+                          ), 
+                            ),
+                          ],
+                        ),
+                        
+                      ),
+                      
+                  
+                              
             ]),
+            )
           )  
 
         ],
