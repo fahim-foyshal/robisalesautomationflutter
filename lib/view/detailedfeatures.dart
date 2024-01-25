@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:robisalesautomation/main.dart';
+
 import 'package:robisalesautomation/model/DistributorData.dart';
+import 'package:robisalesautomation/view/openshops.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
 import 'package:robisalesautomation/view/tourplanadd.dart';
 
@@ -27,7 +28,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
           "Distributor Details",
           style: TextStyle(color: Colors.white,fontFamily: "monospace",),
         ),
-        backgroundColor: Appcolors.primary,
+        backgroundColor: Color.fromARGB(255, 248, 56, 88),
         actions: [
           IconButton(
             onPressed: () {},
@@ -51,8 +52,9 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                     ),
+
                     color: Appcolors.secondary,
-                  ),
+     ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -120,6 +122,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                 ),
               ],
             ),
+
             Container(
               padding: EdgeInsets.all(16),
               child: Wrap(
@@ -158,7 +161,14 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                     color: const Color(0xFF6B240C),
                     text: 'Update Location',
                     onTap: () {
-                      // Add navigation logic here
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddShopPage(
+
+                          ),
+                        ),
+                      );
                     },
                   ),
                   buildCard(

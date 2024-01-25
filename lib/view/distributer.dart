@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:robisalesautomation/main.dart';
 import 'package:robisalesautomation/model/DistributorData.dart';
 import 'package:robisalesautomation/view/detailedfeatures.dart';
 
@@ -68,7 +67,7 @@ class _DistributerListState extends State<DistributerList>
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Appcolors.primary,
+        backgroundColor: const Color.fromARGB(255, 248, 56, 88),
         toolbarHeight: 10,
       ),
       body: Column(
@@ -77,7 +76,7 @@ class _DistributerListState extends State<DistributerList>
             padding: const EdgeInsets.all(16),
             width: screenWidth,
             decoration: const BoxDecoration(
-              color: Appcolors.primary,
+              color: Color.fromARGB(255, 248, 56, 88),
               borderRadius: BorderRadius.only(),
             ),
             child: Row(
@@ -231,7 +230,7 @@ class _DistributerListState extends State<DistributerList>
                           fontFamily: 'monospace',
                           fontSize: 24,
                           fontWeight: FontWeight.w800,
-                          color:  Appcolors.primary,
+                          color: Color.fromARGB(255, 248, 56, 88),
                         ),
                       ),
                       Text(

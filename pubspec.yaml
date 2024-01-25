@@ -18,6 +18,7 @@ dependencies:
 #  webview_flutter: ^3.0.0
   percent_indicator: ^4.2.3
   pie_chart: ^5.4.0
+  sqflite: ^2.3.1
 
 
 

@@ -36,7 +36,7 @@ class _TourplanaddState extends State<Tourplanadd> {
           "Tour Plan Add",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Appcolors.primary,
+        backgroundColor: Colors.red,
       ),
       body: SafeArea(
         child: Column(
@@ -52,36 +52,34 @@ class _TourplanaddState extends State<Tourplanadd> {
 
   Container dropdown(BuildContext context) {
     return Container(
-            width: MediaQuery.of(context).size.width ,
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-              Text("DB  ",
-                  style: TextStyle(color: Appcolors.lightwhite,fontSize: 18),
-              ),
-
-              DropdownButton<String>(
-                value: selectedOption,
-                onChanged: (String? newValue) {
-                  setState(
-                        () {
-                      selectedOption = newValue!;
-                    },
-                  );
-                },
-                items: dropdownOptions.map((String option) {
-                  return DropdownMenuItem<String>(
-                    value: option,
-                    child: Text(option),
-                  );
-                }).toList(),
-              ),
-            ]),
-          );
+      width: MediaQuery.of(context).size.width,
+      margin: EdgeInsets.all(8),
+      padding: EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.blue,
+      ),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Text(
+          "DB  ",
+          style: TextStyle(color: Colors.red, fontSize: 18),
+        ),
+        DropdownButton<String>(
+          value: selectedOption,
+          onChanged: (String? newValue) {
+            setState(
+              () {
+                selectedOption = newValue!;
+              },
+            );
+          },
+          items: dropdownOptions.map((String option) {
+            return DropdownMenuItem<String>(
+              value: option,
+              child: Text(option),
+            );
+          }).toList(),
+        ),
+      ]),
+    );
   }
 }

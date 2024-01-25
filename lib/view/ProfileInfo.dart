@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../utility/mycolors.dart';
 
 class ProfileInfo extends StatefulWidget {
@@ -29,7 +30,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
       ),
       body: Column(
         children: [
-          //--->>>>>>>>1st container start
+
           Container(
             padding: EdgeInsets.all(16.0),
             child: Card(
@@ -114,7 +115,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
               ),
             ),
           ),
-          //--->>>>>>>>2rd container start
+
             Container(
           height: 120,
           width: 330,
@@ -178,6 +179,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
         ),
         //--->>>>>>>>3rd container start
          Container(
+
              padding: EdgeInsets.symmetric(horizontal: 30.0),
               child: Row(
                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -229,6 +231,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
            
             ]),
           )  
+
         ],
       ),
     );

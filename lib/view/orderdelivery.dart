@@ -105,7 +105,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
               ),
               padding: EdgeInsets.all(8),
               child: OrderDeliveryTable(
-                tableData: [
+                tableData: const [
                   {
                     'Item': 'Fahim',
                     'Quantity': 2,
