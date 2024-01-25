@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:robisalesautomation/main.dart';
 import 'package:robisalesautomation/model/DistributorData.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
 import 'package:robisalesautomation/view/tourplanadd.dart';
@@ -24,7 +25,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
           "Distributor Details",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Color.fromARGB(255, 248, 56, 88),
+        backgroundColor: Appcolors.primary,
         actions: [
           IconButton(
             onPressed: () {},
@@ -48,7 +49,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                     ),
-                    color: Color.fromARGB(255, 248, 56, 88),
+                    color: Appcolors.primary,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

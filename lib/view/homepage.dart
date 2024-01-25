@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:robisalesautomation/view/Attendance%20.dart';
+
+import 'package:robisalesautomation/main.dart';
+
 import 'package:robisalesautomation/view/distributer.dart';
 
 class Homepage extends StatefulWidget {
@@ -36,6 +40,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+
         // backgroundColor: const Color.fromARGB(255, 248, 56, 88),
         backgroundColor: Colors.deepPurple,
         toolbarHeight: 10,
@@ -52,6 +57,7 @@ class _HomepageState extends State<Homepage> {
                 elevation: 20,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
                   children: [
                     Container(
                       width: 50,
