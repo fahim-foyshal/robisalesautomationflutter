@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:robisalesautomation/main.dart';
 import 'package:robisalesautomation/view/distributer.dart';
 
 class Homepage extends StatefulWidget {
@@ -14,7 +15,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 248, 56, 88),
+        backgroundColor:  Appcolors.primary,
         toolbarHeight: 10,
       ),
       body: Column(
@@ -23,7 +24,7 @@ class _HomepageState extends State<Homepage> {
           Container(
             height: 100,
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 248, 56, 88),
+              color: Appcolors.primary,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(30),

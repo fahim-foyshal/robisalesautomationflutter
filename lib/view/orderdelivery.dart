@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robisalesautomation/main.dart';
 
 class Orderdelivery extends StatefulWidget {
   const Orderdelivery({super.key});
@@ -16,7 +17,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
           "Order Delivery",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Color.fromARGB(255, 248, 56, 88),
+        backgroundColor: Appcolors.primary,
       ),
       body: Column(
         children: [
@@ -25,7 +26,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
             width: MediaQuery.of(context).size.width,
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 248, 56, 88),
+              color: Appcolors.primary,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20.0),
                 bottomRight: Radius.circular(20.0),
@@ -36,6 +37,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
               padding: EdgeInsets.all(8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     "Shop name:M/SF,M Electronics",
