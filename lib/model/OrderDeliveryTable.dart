@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:robisalesautomation/utility/mycolors.dart';
 
 class OrderDeliveryTable extends StatelessWidget {
   final List<Map<String, dynamic>> tableData;
@@ -16,7 +17,7 @@ class OrderDeliveryTable extends StatelessWidget {
     }
 
     return DataTable(
-      headingRowColor: MaterialStateProperty.all<Color>(Color(0xFF493e6f)),
+      headingRowColor: MaterialStateProperty.all<Color>(Appcolors.secondary),
       columnSpacing: 15,
       columns: const [
         DataColumn(

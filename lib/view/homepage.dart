@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:robisalesautomation/utility/mycolors.dart';
 import 'package:robisalesautomation/view/Attendance%20.dart';
 
 import 'package:robisalesautomation/main.dart';
@@ -42,7 +43,7 @@ class _HomepageState extends State<Homepage> {
       appBar: AppBar(
 
         // backgroundColor: const Color.fromARGB(255, 248, 56, 88),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Appcolors.primary,
         toolbarHeight: 10,
       ),
       body: SingleChildScrollView(
@@ -53,7 +54,7 @@ class _HomepageState extends State<Homepage> {
               height: 150,
               child: Card(
                 margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
-                color: Colors.deepPurple[300],
+                color: Appcolors.secondary,
                 elevation: 20,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -129,7 +130,7 @@ class _HomepageState extends State<Homepage> {
                         radius: 90,
                         lineWidth: 22,
                         percent: 0.4,
-                        progressColor: Colors.deepPurple,
+                        progressColor: Appcolors.primary,
                         backgroundColor: Colors.deepPurple.shade100,
                         circularStrokeCap: CircularStrokeCap.round,
                       ),
@@ -284,11 +285,11 @@ class _HomepageState extends State<Homepage> {
                   color: const Color(0xFFC85250),
                   text: 'Attendance',
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Attendance()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => const Attendance()),
+                    // );
                   },
                 ),
                 buildCard(

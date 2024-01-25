@@ -5,6 +5,8 @@ import 'package:robisalesautomation/model/DistributorData.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
 import 'package:robisalesautomation/view/tourplanadd.dart';
 
+import '../utility/mycolors.dart';
+
 class Detailedfeatures extends StatefulWidget {
   final DistributorData distributorData;
 
@@ -23,7 +25,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
       appBar: AppBar(
         title: Text(
           "Distributor Details",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white,fontFamily: "monospace",),
         ),
         backgroundColor: Appcolors.primary,
         actions: [
@@ -49,7 +51,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                     ),
-                    color: Appcolors.primary,
+                    color: Appcolors.secondary,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,7 +60,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       Container(
                         width: 80,
                         height: 80,
-                        padding: EdgeInsets.only(left: 8),
+                        padding: EdgeInsets.only(left: 4),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                         ),
@@ -112,78 +114,81 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                   child: Container(
                     child: IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.arrow_drop_down_circle_outlined),
+                      icon: Icon(Icons.arrow_drop_down_circle_outlined,color: Colors.white,),
                     ),
                   ),
                 ),
               ],
             ),
-            Wrap(
-              alignment: WrapAlignment.start,
-              spacing: 10,
-              runSpacing: 10,
-              children: [
-                buildCard(
-                  icon: FontAwesomeIcons.cartPlus,
-                  color: Colors.purple,
-                  text: 'Add Order',
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Tourplanadd()),
-                    );
-                  },
-                ),
-                buildCard(
-                  icon: FontAwesomeIcons.list,
-                  color: const Color(0xFFD9EDBF),
-                  text: 'Order List',
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Orderdelivery(
-
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                spacing: 10,
+                runSpacing: 10,
+                children: [
+                  buildCard(
+                    icon: FontAwesomeIcons.cartPlus,
+                    color: Colors.purple,
+                    text: 'Add Order',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Tourplanadd()),
+                      );
+                    },
+                  ),
+                  buildCard(
+                    icon: FontAwesomeIcons.list,
+                    color: const Color(0xFFD9EDBF),
+                    text: 'Order List',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Orderdelivery(
+              
+                          ),
                         ),
-                      ),
-                    );
-                  },
-                ),
-                buildCard(
-                  icon: FontAwesomeIcons.mapLocationDot,
-                  color: const Color(0xFF6B240C),
-                  text: 'Update Location',
-                  onTap: () {
-                    // Add navigation logic here
-                  },
-                ),
-                buildCard(
-                  icon: FontAwesomeIcons.fileInvoiceDollar,
-                  color: const Color(0xFFFF4A4F),
-                  text: 'Payment List',
-                  onTap: () {
-                    // Add navigation logic here
-                  },
-                ),
-                buildCard(
-                  icon: FontAwesomeIcons.clipboardList,
-                  color: Colors.blueAccent,
-                  text: 'Stock List',
-                  onTap: () {
-                    // Add navigation logic here
-                  },
-                ),
-                buildCard(
-                  icon: FontAwesomeIcons.listCheck,
-                  color: const Color(0xFF365486),
-                  text: 'Visit List',
-                  onTap: () {
-                    // Add navigation logic here
-                  },
-                ),
-                // Add more cards as needed
-                // ...
-              ],
+                      );
+                    },
+                  ),
+                  buildCard(
+                    icon: FontAwesomeIcons.mapLocationDot,
+                    color: const Color(0xFF6B240C),
+                    text: 'Update Location',
+                    onTap: () {
+                      // Add navigation logic here
+                    },
+                  ),
+                  buildCard(
+                    icon: FontAwesomeIcons.fileInvoiceDollar,
+                    color: const Color(0xFFFF4A4F),
+                    text: 'Payment List',
+                    onTap: () {
+                      // Add navigation logic here
+                    },
+                  ),
+                  buildCard(
+                    icon: FontAwesomeIcons.clipboardList,
+                    color: Colors.blueAccent,
+                    text: 'Stock List',
+                    onTap: () {
+                      // Add navigation logic here
+                    },
+                  ),
+                  buildCard(
+                    icon: FontAwesomeIcons.listCheck,
+                    color: const Color(0xFF365486),
+                    text: 'Visit List',
+                    onTap: () {
+                      // Add navigation logic here
+                    },
+                  ),
+                  // Add more cards as needed
+                  // ...
+                ],
+              ),
             ),
           ],
         ),
