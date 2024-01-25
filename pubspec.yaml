@@ -12,10 +12,10 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   font_awesome_flutter: ^10.6.0
-#  flutter_inappwebview: ^6.0.0
+  flutter_inappwebview: ^6.0.0
   image_picker: ^1.0.7
   geolocator: ^10.1.0
-#  webview_flutter: ^3.0.0
+  webview_flutter: ^3.0.0
   percent_indicator: ^4.2.3
   pie_chart: ^5.4.0
   sqflite: ^2.3.1

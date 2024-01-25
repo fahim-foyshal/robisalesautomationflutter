@@ -134,7 +134,7 @@ class _AllMenuContentState extends State<AllMenuContent> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const Attendance()),
+                MaterialPageRoute(builder: (context) => Attendance()),
               );
             },
           ),
