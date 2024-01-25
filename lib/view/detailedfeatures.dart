@@ -141,9 +141,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Orderdelivery(
-
-                        ),
+                        builder: (context) => Orderdelivery(),
                       ),
                     );
                   },
