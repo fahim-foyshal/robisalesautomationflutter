@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robisalesautomation/model/OrderDeliveryTable.dart';
 
 class Orderdelivery extends StatefulWidget {
   const Orderdelivery({super.key});
@@ -12,20 +13,20 @@ class _OrderdeliveryState extends State<Orderdelivery> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Order Delivery",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Color.fromARGB(255, 248, 56, 88),
+        backgroundColor: const Color.fromARGB(255, 248, 56, 88),
       ),
       body: Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.20,
             width: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 248, 56, 88),
+            margin: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 248, 56, 88),
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20.0),
                 bottomRight: Radius.circular(20.0),
@@ -33,8 +34,8 @@ class _OrderdeliveryState extends State<Orderdelivery> {
             ),
             // color: const Color.fromARGB(255, 248, 56, 88),
             child: Container(
-              padding: EdgeInsets.all(8),
-              child: Column(
+              padding: const EdgeInsets.all(8),
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -66,66 +67,35 @@ class _OrderdeliveryState extends State<Orderdelivery> {
               ),
             ),
           ),
-          // Container(
-          //     child: ListView(
-          //   children: <Widget>[
-          //     Center(
-          //       child: Text(
-          //         'People-Chart',
-          //         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          //       ),
-          //     ),
-          //     DataTable(
-          //       columns: [
-          //         DataColumn(
-          //           label: Text('ID',
-          //               style: TextStyle(
-          //                   fontSize: 18, fontWeight: FontWeight.bold)),
-          //         ),
-          //         DataColumn(
-          //           label: Text('Name',
-          //               style: TextStyle(
-          //                   fontSize: 18, fontWeight: FontWeight.bold)),
-          //         ),
-          //         DataColumn(
-          //           label: Text('Profession',
-          //               style: TextStyle(
-          //                   fontSize: 18, fontWeight: FontWeight.bold)),
-          //         ),
-          //       ],
-          //       rows: [
-          //         DataRow(cells: [
-          //           DataCell(Text('1')),
-          //           DataCell(Text('Stephen')),
-          //           DataCell(Text('Actor')),
-          //         ]),
-          //         DataRow(
-          //           cells: [
-          //             DataCell(Text('5')),
-          //             DataCell(Text('John')),
-          //             DataCell(Text('Student')),
-          //           ],
-          //         ),
-          //         DataRow(
-          //           cells: [
-          //             DataCell(Text('10')),
-          //             DataCell(Text('Harry')),
-          //             DataCell(Text('Leader')),
-          //           ],
-          //         ),
-          //         DataRow(
-          //           cells: [
-          //             DataCell(Text('15')),
-          //             DataCell(Text('Peter')),
-          //             DataCell(Text('Scientist')),
-          //           ],
-          //         ),
-          //       ],
-          //     ),
-          //   ],
-          // )),
           Container(
-            padding: EdgeInsets.all(8),
+            child: Container(
+              padding: EdgeInsets.all(8),
+              child: OrderDeliveryTable(
+                tableData: [
+                  {
+                    'Item': 'Fahim',
+                    'Quantity': 2,
+                    'Delivery Count': 4,
+                    'Price': 200
+                  },
+                  {
+                    'Item': 'Ruhul',
+                    'Quantity': 5,
+                    'Delivery Count': 4,
+                    'Price': 40
+                  },
+                  {
+                    'Item': 'Ashraf',
+                    'Quantity': 3,
+                    'Delivery Count': 10,
+                    'Price': 70
+                  },
+                ],
+              ),
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.all(8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -133,15 +103,15 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     elevation: 8.0, // Adjust the elevation
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 12.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
 
                     backgroundColor: Colors.blueAccent,
                   ),
-                  child: Text(
+                  child: const Text(
                     "Submit Delivery",
                     style: TextStyle(color: Colors.white),
                   ),
@@ -150,15 +120,15 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     elevation: 8.0, // Adjust the elevation
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 12.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
 
                     backgroundColor: Colors.red,
                   ),
-                  child: Text(
+                  child: const Text(
                     "Discard Delivary",
                     style: TextStyle(color: Colors.white),
                   ),
