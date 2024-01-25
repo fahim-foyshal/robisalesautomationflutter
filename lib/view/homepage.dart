@@ -41,68 +41,75 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              height: 150,
-              child: Card(
-                margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
-                color: Appcolors.secondary,
-                elevation: 20,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 50,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(25),
+            GestureDetector(
+              onTap: () => {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileInfo()),
+                )
+              },
+              child: Container(
+                height: 150,
+                child: Card(
+                  margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
+                  color: Appcolors.secondary,
+                  elevation: 20,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        // You can replace the Image.network with your actual image loading logic
+                        child: ClipOval(
+                          child: Image.network(
+                            'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
-                      // You can replace the Image.network with your actual image loading logic
-                      child: ClipOval(
-                        child: Image.network(
-                          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
-                          fit: BoxFit.cover,
-                        ),
+                      const SizedBox(width: 10),
+                      const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'kamal hossain',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontFamily: "monospace",
+                            ),
+                          ),
+                          Text(
+                            'sales manager',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontFamily: "DMMono-Regular",
+                            ),
+                          ),
+                          Text(
+                            'ID :00155',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontFamily: "DMMono-Regular",
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    const SizedBox(width: 10),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'kamal hossain',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontFamily: "monospace",
-                          ),
-                        ),
-                        Text(
-                          'sales manager',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontFamily: "DMMono-Regular",
-                          ),
-                        ),
-                        Text(
-                          'ID :00155',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontFamily: "DMMono-Regular",
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -112,6 +119,7 @@ class _HomepageState extends State<Homepage> {
                 margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
                 // color: Colors.deepPurple[300],
                 elevation: 20,
+                color: Appcolors.lightwhite,
 
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +140,7 @@ class _HomepageState extends State<Homepage> {
                           child: Text("40%",
                               style: TextStyle(fontWeight: FontWeight.w700)),
                         ),
-              
+
                         backgroundColor: Colors.deepPurple.shade100,
                         circularStrokeCap: CircularStrokeCap.round,
                       ),
@@ -187,6 +195,7 @@ class _HomepageState extends State<Homepage> {
                 margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
                 // color: Colors.deepPurple[300],
                 elevation: 20,
+                color: Appcolors.lightwhite,
 
                 child: Row(
                   children: [
