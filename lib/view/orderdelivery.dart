@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:robisalesautomation/model/OrderDeliveryTable.dart';
 
 import 'package:robisalesautomation/main.dart';
+import 'package:robisalesautomation/utility/mycolors.dart';
 
 
 class Orderdelivery extends StatefulWidget {
@@ -19,64 +20,89 @@ class _OrderdeliveryState extends State<Orderdelivery> {
       appBar: AppBar(
         title: const Text(
           "Order Delivery",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white,fontFamily: "monospace",),
         ),
 
-        backgroundColor: const Color.fromARGB(255, 248, 56, 88),
+        backgroundColor: Appcolors.primary,
 
       ),
       body: Column(
         children: [
           Container(
+
             height: MediaQuery.of(context).size.height * 0.20,
             width: MediaQuery.of(context).size.width,
             margin: const EdgeInsets.all(10),
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 248, 56, 88),
 
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20.0),
-                bottomRight: Radius.circular(20.0),
-              ),
+
+              borderRadius: BorderRadius.all(Radius.circular(20)),
             ),
             // color: const Color.fromARGB(255, 248, 56, 88),
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Shop name:M/SF,M Electronics",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+            child: Card(
+              color: Appcolors.secondary,
+              elevation: 20,
+              child: Container(
+                padding: const EdgeInsets.all(8),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Text(
+                        "Shop name:M/SF,M Electronics",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontFamily: "monospace",
+                        ),
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Name:Alomgir",
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                  Text(
-                    'Phone Number:01800000000000',
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                  Text(
-                    'Adress: Gulshan',
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                  Text(
-                    'Shop Code :000000.0000000',
-                    softWrap: true,
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                ],
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Name:Alomgir",
+                            style: TextStyle(fontSize: 14, color: Colors.white,fontFamily: "monospace",),
+                          ),
+                          Text(
+                            'Phone Number:01800000000000',
+                            style: TextStyle(fontSize: 14, color: Colors.white,fontFamily: "monospace",),
+                          ),
+                          Text(
+                            'Adress: Gulshan',
+                            style: TextStyle(fontSize: 14, color: Colors.white,fontFamily: "monospace",),
+                          ),
+                          Text(
+                            'Shop Code :000000.0000000',
+                            softWrap: true,
+                            style: TextStyle(fontSize: 14, color: Colors.white,fontFamily: "monospace",),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                  ],
+                ),
               ),
             ),
           ),
           Container(
             child: Container(
+
+
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                ),
+              ),
               padding: EdgeInsets.all(8),
               child: OrderDeliveryTable(
                 tableData: const [
@@ -104,7 +130,10 @@ class _OrderdeliveryState extends State<Orderdelivery> {
           ),
           Container(
             padding: const EdgeInsets.all(8),
+            height: 100,
+            width: MediaQuery.of(context).size.width,
             child: Row(
+
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
@@ -125,6 +154,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                   ),
                 ),
                 ElevatedButton(
+
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     elevation: 8.0, // Adjust the elevation

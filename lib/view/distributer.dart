@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robisalesautomation/model/DistributorData.dart';
 import 'package:robisalesautomation/view/detailedfeatures.dart';
 
+import '../utility/mycolors.dart';
+
 class DistributerList extends StatefulWidget {
   const DistributerList({Key? key}) : super(key: key);
 

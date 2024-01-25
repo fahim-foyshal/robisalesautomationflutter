@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:robisalesautomation/utility/mycolors.dart';
 import 'package:robisalesautomation/view/Attendance%20.dart';
 
 import 'package:robisalesautomation/main.dart';
@@ -40,6 +41,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -48,7 +50,7 @@ class _HomepageState extends State<Homepage> {
               height: 150,
               child: Card(
                 margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
-                color: Colors.deepPurple[300],
+                color: Appcolors.secondary,
                 elevation: 20,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -124,11 +126,13 @@ class _HomepageState extends State<Homepage> {
                         radius: 90,
                         lineWidth: 22,
                         percent: 0.4,
+
+                        progressColor: Appcolors.primary,
                         center: const Center(
                           child: Text("40%",
                               style: TextStyle(fontWeight: FontWeight.w700)),
                         ),
-                        progressColor: Colors.deepPurple,
+              
                         backgroundColor: Colors.deepPurple.shade100,
                         circularStrokeCap: CircularStrokeCap.round,
                       ),
