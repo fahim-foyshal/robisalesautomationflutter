@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utility/mycolors.dart';
 
 class ProfileInfo extends StatefulWidget {
   const ProfileInfo({super.key});
@@ -28,6 +29,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
       ),
       body: Column(
         children: [
+          //--->>>>>>>>1st container start
           Container(
             padding: EdgeInsets.all(16.0),
             child: Card(
@@ -112,6 +114,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
               ),
             ),
           ),
+          //--->>>>>>>>2rd container start
             Container(
           height: 120,
           width: 330,
@@ -175,8 +178,57 @@ class _ProfileInfoState extends State<ProfileInfo> {
         ),
         //--->>>>>>>>3rd container start
          Container(
-
-         )     
+             padding: EdgeInsets.symmetric(horizontal: 30.0),
+              child: Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 children: [
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle left button press
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(140, 36),
+                    backgroundColor:Appcolors.secondary,
+                     // Set button width
+                  ),
+                  child: Text(
+                    'In',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "monospace", // Dropdown item text color
+                    ),
+                    ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle right button press
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(140, 36),
+                     backgroundColor:Color.fromARGB(255, 226, 219, 219),
+                     // Set button width
+                  ),
+                  child: Text(
+                    'Out',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "monospace", // Dropdown item text color
+                    ),
+                    ),
+                ),
+              ],
+              )
+         ),
+         //--->>>>>>>>4rd container start
+          Container(
+            child: Column(children: [
+           
+            ]),
+          )  
         ],
       ),
     );
