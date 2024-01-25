@@ -8,6 +8,7 @@ import 'package:robisalesautomation/view/Attendance%20.dart';
 import 'package:robisalesautomation/main.dart';
 
 import 'package:robisalesautomation/view/distributer.dart';
+import 'package:robisalesautomation/view/ProfileInfo.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -45,6 +46,7 @@ class _HomepageState extends State<Homepage> {
         backgroundColor: Colors.deepPurple,
         toolbarHeight: 10,
       ),
+
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -302,6 +304,7 @@ class _HomepageState extends State<Homepage> {
                 // Add more cards as needed
                 // ...
               ],
+
             ),
           ],
         ),
