@@ -41,7 +41,6 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -112,6 +111,7 @@ class _HomepageState extends State<Homepage> {
                 margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
                 // color: Colors.deepPurple[300],
                 elevation: 20,
+                color: Appcolors.lightwhite,
 
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +132,7 @@ class _HomepageState extends State<Homepage> {
                           child: Text("40%",
                               style: TextStyle(fontWeight: FontWeight.w700)),
                         ),
-              
+
                         backgroundColor: Colors.deepPurple.shade100,
                         circularStrokeCap: CircularStrokeCap.round,
                       ),
@@ -187,6 +187,7 @@ class _HomepageState extends State<Homepage> {
                 margin: const EdgeInsets.only(top: 30, left: 13, right: 13),
                 // color: Colors.deepPurple[300],
                 elevation: 20,
+                color: Appcolors.lightwhite,
 
                 child: Row(
                   children: [
