@@ -27,6 +27,13 @@ class _AddShopPageState extends State<AddShopPage> {
     });
   }
 
+  String selectedOption = 'Please Select';
+  List<String> dropdownOptions = [
+    'Please Select',
+    'Morning',
+    'Afternone',
+    'Night',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +49,7 @@ class _AddShopPageState extends State<AddShopPage> {
         backgroundColor: Appcolors.primary,
       ),
       body: Padding(
-        padding:  EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           children: [
             // Add image picker widget here
@@ -53,7 +60,12 @@ class _AddShopPageState extends State<AddShopPage> {
                 onPressed: () {
                   // Implement image picking logic here
                 },
-                child: const Text('Add Image',style: TextStyle(fontFamily: "monospace",),),
+                child: const Text(
+                  'Add Image',
+                  style: TextStyle(
+                    fontFamily: "monospace",
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 15.0),
@@ -61,8 +73,7 @@ class _AddShopPageState extends State<AddShopPage> {
               color: Colors.white,
               elevation: 20,
               child: TextField(
-                decoration:
-                const InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Enter Shop Name',
                 ),
                 onChanged: onShopNameChanged,
@@ -75,15 +86,83 @@ class _AddShopPageState extends State<AddShopPage> {
               child: TextField(
                 decoration: const InputDecoration(
                   labelText: 'Enter Shop Address',
+                  labelStyle: TextStyle(),
                 ),
                 onChanged: onShopAddressChanged,
               ),
             ),
             const SizedBox(height: 15.0),
-             Container(
-               height: 80,
-               width: MediaQuery.of(context).size.width,
-               child: Card(
+            Card(
+              color: Colors.white,
+              elevation: 20,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Shift',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        fontFamily: "monospace",
+                      ),
+                    ),
+                    DropdownButton<String>(
+                      value: selectedOption,
+                      onChanged: (String? newValue) {
+                        setState(
+                              () {
+                            selectedOption = newValue!;
+                          },
+                        );
+                      },
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black, // Text color
+                      ),
+                      dropdownColor: Appcolors.secondary,
+                      icon: Icon(
+                        Icons.arrow_drop_down,
+                        color: Appcolors.primary, // Dropdown arrow color
+                      ),
+                      underline: Container(
+                        height: 2,
+                        color: Appcolors.secondary, // Underline color
+                      ),
+                      isExpanded: true, // Make the dropdown width match the device width
+                      hint: Text(
+                        'Select Shift', // Placeholder text
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey, // Placeholder text color
+                        ),
+                      ),
+                      items: dropdownOptions.map(
+                            (String option) {
+                          return DropdownMenuItem<String>(
+                            value: option,
+                            child: Text(
+                              option,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black, // Dropdown item text color
+                              ),
+                            ),
+                          );
+                        },
+                      ).toList(),
+                    )
+                  ],
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 10.0),
+            Container(
+              height: 80,
+              width: MediaQuery.of(context).size.width,
+              child: Card(
                 color: Colors.white,
                 elevation: 20,
                 child: Padding(
@@ -99,11 +178,7 @@ class _AddShopPageState extends State<AddShopPage> {
                     ],
                   ),
                 ),
-                           ),
-             ),
-            const SizedBox(height: 15.0),
-            Container(
-
+              ),
             ),
             // Implement dropdown menus for zone, division, and territory here
           ],

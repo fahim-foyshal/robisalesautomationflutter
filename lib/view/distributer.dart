@@ -67,7 +67,7 @@ class _DistributerListState extends State<DistributerList>
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 248, 56, 88),
+        backgroundColor: Appcolors.primary,
         toolbarHeight: 10,
       ),
       body: Column(
@@ -76,7 +76,7 @@ class _DistributerListState extends State<DistributerList>
             padding: const EdgeInsets.all(16),
             width: screenWidth,
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 248, 56, 88),
+              color: Appcolors.secondary,
               borderRadius: BorderRadius.only(),
             ),
             child: Row(
