@@ -71,7 +71,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
             child: Container(
               padding: EdgeInsets.all(8),
               child: OrderDeliveryTable(
-                tableData: [
+                tableData: const [
                   {
                     'Item': 'Fahim',
                     'Quantity': 2,
