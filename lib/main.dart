@@ -15,7 +15,7 @@ void main() {
     debugShowCheckedModeBanner: false,
     initialRoute: 'homepage',
 
-    routes: {'homepage': (context) => HomepageAndMenuHolder()},
+    routes: {'homepage': (context) => loginpage()},
 
   ));
 }
