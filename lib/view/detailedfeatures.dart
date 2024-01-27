@@ -28,7 +28,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
           "Distributor Details",
           style: TextStyle(color: Colors.white,fontFamily: "monospace",),
         ),
-        backgroundColor: Color.fromARGB(255, 248, 56, 88),
+        backgroundColor: Appcolors.primary,
         actions: [
           IconButton(
             onPressed: () {},
