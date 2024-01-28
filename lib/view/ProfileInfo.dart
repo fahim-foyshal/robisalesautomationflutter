@@ -237,7 +237,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 8.0),
+                            SizedBox(height: 9.0),
                             Text(
                               'Name:Ruhul Amin',
                               style: TextStyle(
