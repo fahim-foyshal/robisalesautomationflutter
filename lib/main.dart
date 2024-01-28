@@ -1,5 +1,4 @@
 
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 import 'package:robisalesautomation/view/loginpage.dart';
@@ -15,15 +14,9 @@ import 'package:robisalesautomation/view/loginpage.dart';
 //   );
 // }
 
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:robisalesautomation/utility/mycolors.dart';
-import 'package:robisalesautomation/view/loginpage.dart';
-
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -40,7 +33,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;
 
@@ -54,22 +48,26 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     );
 
     // Define animation curve
-    _animation = CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
+    _animation =
+        CurvedAnimation(parent: _animationController, curve: Curves.easeInOut);
 
     // Start animation
     _animationController.forward();
 
     // Navigate to the login page after animation completes
-    _animationController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => loginpage(),),
-        );
-      }
-    });
+    _animationController.addStatusListener(
+      (status) {
+        if (status == AnimationStatus.completed) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => loginpage(),
+            ),
+          );
+        }
+      },
+    );
   }
-
   @override
   void dispose() {
     // Dispose animation controller
@@ -84,7 +82,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       body: Center(
         child: ScaleTransition(
           scale: _animation,
-          child: Image.asset('assets/images/robilogo.png'), // Display the logo image
+          child: Image.asset(
+              'assets/images/robilogo.png'), // Display the logo image
         ),
       ),
     );

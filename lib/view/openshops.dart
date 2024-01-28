@@ -7,17 +7,15 @@ class AddShopPage extends StatefulWidget {
   @override
   _AddShopPageState createState() => _AddShopPageState();
 }
-
 // Create a corresponding State class
 class _AddShopPageState extends State<AddShopPage> {
   // Define variables to store the entered shop details
   String _shopName = '';
   String _shopAddress = '';
   String _ownername = '';
-  String  _ownernumber = '';
+  String _ownernumber = '';
   String _managername = '';
-  String  _managernumber = '';
-
+  String _managernumber = '';
   // Define methods to handle user input
   void onShopNameChanged(String value) {
     setState(
@@ -26,43 +24,41 @@ class _AddShopPageState extends State<AddShopPage> {
       },
     );
   }
-
   void onShopAddressChanged(String value) {
     setState(
-          () {
+      () {
         _shopAddress = value;
       },
     );
   }
   void onShopOwnerNameChanged(String value) {
     setState(
-          () {
-            _ownername = value;
+      () {
+        _ownername = value;
       },
     );
   }
   void onShopOwnerNumberChnangd(String value) {
     setState(
-          () {
-        _ownernumber= value;
+      () {
+        _ownernumber = value;
       },
     );
   }
   void onShopManagerNameChanged(String value) {
     setState(
-          () {
+      () {
         _managername = value;
       },
     );
   }
   void onShopManagerNumberChanged(String value) {
     setState(
-          () {
-        _managernumber= value;
+      () {
+        _managernumber = value;
       },
     );
   }
-
   String selectedOption1 = 'Please Select';
   List<String> dropdownOptions1 = [
     'Please Select',
@@ -106,7 +102,6 @@ class _AddShopPageState extends State<AddShopPage> {
     'Option 2',
     'Option 3',
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -202,7 +197,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           value: selectedOption1,
                           onChanged: (String? newValue) {
                             setState(
-                                  () {
+                              () {
                                 selectedOption1 = newValue!;
                               },
                             );
@@ -230,14 +225,15 @@ class _AddShopPageState extends State<AddShopPage> {
                             ),
                           ),
                           items: dropdownOptions1.map(
-                                (String option) {
+                            (String option) {
                               return DropdownMenuItem<String>(
                                 value: option,
                                 child: Text(
                                   option,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black, // Dropdown item text color
+                                    color: Colors
+                                        .black, // Dropdown item text color
                                   ),
                                 ),
                               );
@@ -353,7 +349,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           value: selectedOption2,
                           onChanged: (String? newValue) {
                             setState(
-                                  () {
+                              () {
                                 selectedOption2 = newValue!;
                               },
                             );
@@ -374,14 +370,15 @@ class _AddShopPageState extends State<AddShopPage> {
                           isExpanded: true,
                           // Make the dropdown width match the device width
                           items: dropdownOptions2.map(
-                                (String option) {
+                            (String option) {
                               return DropdownMenuItem<String>(
                                 value: option,
                                 child: Text(
                                   option,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black, // Dropdown item text color
+                                    color: Colors
+                                        .black, // Dropdown item text color
                                   ),
                                 ),
                               );
@@ -417,7 +414,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           value: selectedOption3,
                           onChanged: (String? newValue) {
                             setState(
-                                  () {
+                              () {
                                 selectedOption3 = newValue!;
                               },
                             );
@@ -445,14 +442,15 @@ class _AddShopPageState extends State<AddShopPage> {
                             ),
                           ),
                           items: dropdownOptions3.map(
-                                (String option) {
+                            (String option) {
                               return DropdownMenuItem<String>(
                                 value: option,
                                 child: Text(
                                   option,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black, // Dropdown item text color
+                                    color: Colors
+                                        .black, // Dropdown item text color
                                   ),
                                 ),
                               );
@@ -488,7 +486,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           value: selectedOption4,
                           onChanged: (String? newValue) {
                             setState(
-                                  () {
+                              () {
                                 selectedOption4 = newValue!;
                               },
                             );
@@ -516,14 +514,15 @@ class _AddShopPageState extends State<AddShopPage> {
                             ),
                           ),
                           items: dropdownOptions4.map(
-                                (String option) {
+                            (String option) {
                               return DropdownMenuItem<String>(
                                 value: option,
                                 child: Text(
                                   option,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black, // Dropdown item text color
+                                    color: Colors
+                                        .black, // Dropdown item text color
                                   ),
                                 ),
                               );
@@ -559,7 +558,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           value: selectedOption5,
                           onChanged: (String? newValue) {
                             setState(
-                                  () {
+                              () {
                                 selectedOption5 = newValue!;
                               },
                             );
@@ -587,14 +586,15 @@ class _AddShopPageState extends State<AddShopPage> {
                             ),
                           ),
                           items: dropdownOptions5.map(
-                                (String option) {
+                            (String option) {
                               return DropdownMenuItem<String>(
                                 value: option,
                                 child: Text(
                                   option,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black, // Dropdown item text color
+                                    color: Colors
+                                        .black, // Dropdown item text color
                                   ),
                                 ),
                               );
@@ -629,7 +629,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           value: selectedOption6,
                           onChanged: (String? newValue) {
                             setState(
-                                  () {
+                              () {
                                 selectedOption6 = newValue!;
                               },
                             );
@@ -657,14 +657,15 @@ class _AddShopPageState extends State<AddShopPage> {
                             ),
                           ),
                           items: dropdownOptions6.map(
-                                (String option) {
+                            (String option) {
                               return DropdownMenuItem<String>(
                                 value: option,
                                 child: Text(
                                   option,
                                   style: TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black, // Dropdown item text color
+                                    color: Colors
+                                        .black, // Dropdown item text color
                                   ),
                                 ),
                               );
@@ -681,11 +682,17 @@ class _AddShopPageState extends State<AddShopPage> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 child: Row(
-
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Shop Added"),
+                            backgroundColor: Appcolors.primary,
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         elevation: 8.0, // Adjust the elevation
                         padding: const EdgeInsets.symmetric(
@@ -704,6 +711,14 @@ class _AddShopPageState extends State<AddShopPage> {
                     ElevatedButton(
                       onPressed: () {
 
+
+                        //Snackbar
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text("Discard"),
+                            backgroundColor: Appcolors.primary,
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 8.0, // Adjust the elevation

@@ -25,7 +25,6 @@ class DistributerList extends StatefulWidget {
     ),
   ];
 }
-
 class _DistributerListState extends State<DistributerList>
     with SingleTickerProviderStateMixin {
   bool isFilterSheetVisible = false;
