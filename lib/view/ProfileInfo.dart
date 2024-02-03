@@ -25,7 +25,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
           "Profile Info",
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: const Color.fromARGB(255, 248, 56, 88),
+        backgroundColor: Appcolors.primary,
         toolbarHeight: 40,
       ),
       body: Column(
@@ -35,7 +35,7 @@ class _ProfileInfoState extends State<ProfileInfo> {
             padding: EdgeInsets.all(16.0),
             child: Card(
               elevation: 5,
-              color: const Color.fromARGB(255, 248, 56, 88),
+              color: Appcolors.secondary,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
