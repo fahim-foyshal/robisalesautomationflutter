@@ -5,6 +5,7 @@ import 'package:robisalesautomation/model/DistributorData.dart';
 import 'package:robisalesautomation/view/dohold.dart';
 import 'package:robisalesautomation/view/openshops.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
+import 'package:robisalesautomation/view/orderlist.dart';
 import 'package:robisalesautomation/view/tourplanadd.dart';
 
 import '../utility/mycolors.dart';
@@ -147,7 +148,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Orderdelivery(
+                          builder: (context) => const Orderlist(
                           ),
                         ),
                       );
@@ -192,7 +193,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                     color: const Color(0xFF365486),
                     text: 'Visit List',
                     onTap: () {
-                      // Add navigation logic here
+
                     },
                   ),
                   // Add more cards as needed

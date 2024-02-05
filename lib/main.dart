@@ -68,6 +68,8 @@ class _SplashScreenState extends State<SplashScreen>
       },
     );
   }
+
+
   @override
   void dispose() {
     // Dispose animation controller

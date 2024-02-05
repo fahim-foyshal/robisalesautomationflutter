@@ -690,6 +690,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           SnackBar(
                             content: Text("Shop Added"),
                             backgroundColor: Appcolors.primary,
+                            duration: Duration(seconds: 2),
                           ),
                         );
                       },
@@ -717,6 +718,7 @@ class _AddShopPageState extends State<AddShopPage> {
                           SnackBar(
                             content: Text("Discard"),
                             backgroundColor: Appcolors.primary,
+                            duration: Duration(seconds: 2),
                           ),
                         );
                       },
