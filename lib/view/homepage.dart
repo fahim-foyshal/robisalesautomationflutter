@@ -3,12 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:robisalesautomation/model/User.dart';
+import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
-import 'package:robisalesautomation/view/Attendance%20.dart';
-
-import 'package:robisalesautomation/main.dart';
-
-import 'package:robisalesautomation/view/distributer.dart';
 import 'package:robisalesautomation/view/ProfileInfo.dart';
 
 class Homepage extends StatefulWidget {
@@ -19,6 +16,24 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  User? currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
+  Future<void> loadUserData() async {
+    UserDatabase userDatabase = UserDatabase();
+    User? user = await userDatabase.getUser();
+    if (user != null) {
+      setState(() {
+        currentUser = user;
+      });
+    }
+  }
+
   Map<String, double> weeklydata = {
     "Sat": 2000,
     "Sun": 7000,
@@ -49,7 +64,7 @@ class _HomepageState extends State<Homepage> {
               onTap: () => {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileInfo()),
+                  MaterialPageRoute(builder: (context) => const ProfileInfo()),
                 )
               },
               child: Container(
@@ -62,35 +77,35 @@ class _HomepageState extends State<Homepage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        width: 50,
-                        height: 50,
+                        width: 100,
+                        height: 100,
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(25),
+                          borderRadius: BorderRadius.circular(50),
                         ),
                         // You can replace the Image.network with your actual image loading logic
                         child: ClipOval(
                           child: Image.network(
-                            'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
+                            currentUser?.userImage ?? '',
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
                       const SizedBox(width: 10),
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'kamal hossain',
-                            style: TextStyle(
+                            currentUser?.fullName ?? '',
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 15,
                               color: Colors.white,
                               fontFamily: "monospace",
                             ),
                           ),
-                          Text(
+                          const Text(
                             'sales manager',
                             style: TextStyle(
                               fontSize: 15,
@@ -98,7 +113,7 @@ class _HomepageState extends State<Homepage> {
                               fontFamily: "DMMono-Regular",
                             ),
                           ),
-                          Text(
+                          const Text(
                             'ID :00155',
                             style: TextStyle(
                               fontSize: 15,
@@ -148,7 +163,7 @@ class _HomepageState extends State<Homepage> {
                     Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(left: 22, top: 60),
+                          padding: const EdgeInsets.only(left: 22, top: 60),
                           child: Row(
                             children: [
                               Container(
@@ -159,7 +174,7 @@ class _HomepageState extends State<Homepage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
-                              Text(" Target : 100000",
+                              const Text(" Target : 100000",
                                   style:
                                       TextStyle(fontWeight: FontWeight.w700)),
                             ],
@@ -177,7 +192,7 @@ class _HomepageState extends State<Homepage> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
-                              Text(" Completed : 40000",
+                              const Text(" Completed : 40000",
                                   style:
                                       TextStyle(fontWeight: FontWeight.w700)),
                             ],
