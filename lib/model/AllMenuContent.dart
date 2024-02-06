@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robisalesautomation/view/Attendance%20.dart';
+import 'package:robisalesautomation/view/InitiateOrder.dart';
 import 'package:robisalesautomation/view/distributer.dart';
+import 'package:robisalesautomation/view/openshops.dart';
 
 class AllMenuContent extends StatefulWidget {
   const AllMenuContent({super.key});
@@ -151,7 +153,10 @@ class _AllMenuContentState extends State<AllMenuContent> {
             color: const Color(0xFFC85250),
             text: 'Add order',
             onTap: () {
-              // Add navigation logic here
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InitiateOrder()),
+              );
             },
           ),
           buildCard(
@@ -159,7 +164,10 @@ class _AllMenuContentState extends State<AllMenuContent> {
             color: const Color(0xFFC85250),
             text: 'Add shop',
             onTap: () {
-              // Add navigation logic here
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => openshops()),
+              ); // Add navigation logic here
             },
           ),
           // Add more cards as needed

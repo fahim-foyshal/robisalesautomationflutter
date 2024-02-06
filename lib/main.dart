@@ -5,7 +5,6 @@ import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 import 'package:robisalesautomation/view/HomepageAndMenuHolder.dart';
 import 'package:robisalesautomation/view/LoginScreen%20.dart';
-import 'package:robisalesautomation/view/loginpage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -14,7 +13,7 @@ void main() async {
   UserDatabase userDatabase = UserDatabase();
   bool isUserLoggedIn = await userDatabase.isUserLoggedIn();
 
-  runApp(MyApp(initialRoute: isUserLoggedIn ? '/homepage' : '/login'));
+  runApp(MyApp(initialRoute: isUserLoggedIn ? '/hom`epage' : '/login'));
 }
 
 class MyApp extends StatelessWidget {
@@ -68,8 +67,9 @@ class _SplashScreenState extends State<SplashScreen>
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) =>
-                  isUserLoggedIn ? HomepageAndMenuHolder() : LoginScreen(),
+              builder: (context) => isUserLoggedIn
+                  ? const HomepageAndMenuHolder()
+                  : LoginScreen(),
             ),
           );
         }
