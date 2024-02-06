@@ -16,6 +16,7 @@ class Detailedfeatures extends StatefulWidget {
   @override
   State<Detailedfeatures> createState() => _DetailedfeaturesState();
 }
+
 class _DetailedfeaturesState extends State<Detailedfeatures> {
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,10 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
       appBar: AppBar(
         title: const Text(
           "Distributor Details",
-          style: TextStyle(color: Colors.white,fontFamily: "monospace",),
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: "monospace",
+          ),
         ),
         backgroundColor: Appcolors.primary,
         actions: [
@@ -50,9 +54,8 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       bottomLeft: Radius.circular(20.0),
                       bottomRight: Radius.circular(20.0),
                     ),
-
                     color: Appcolors.secondary,
-     ),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -88,7 +91,8 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                           ),
                           Text(
                             distributorData.distributrcode,
-                            style: const TextStyle(fontSize: 12, color: Colors.white),
+                            style: const TextStyle(
+                                fontSize: 12, color: Colors.white),
                           ),
                           const Text(
                             'Credit Limit:00000000.0',
@@ -114,13 +118,15 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                   child: Container(
                     child: IconButton(
                       onPressed: () {},
-                      icon: const Icon(Icons.arrow_drop_down_circle_outlined,color: Colors.white,),
+                      icon: const Icon(
+                        Icons.arrow_drop_down_circle_outlined,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
-
             Container(
               padding: const EdgeInsets.all(16),
               child: Wrap(
@@ -135,7 +141,8 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Tourplanadd()),
+                        MaterialPageRoute(
+                            builder: (context) => const Tourplanadd()),
                       );
                     },
                   ),
@@ -147,8 +154,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Orderdelivery(
-                          ),
+                          builder: (context) => const Orderdelivery(),
                         ),
                       );
                     },
@@ -161,9 +167,7 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => AddShopPage(
-
-                          ),
+                          builder: (context) => openshops(),
                         ),
                       );
                     },
@@ -175,7 +179,8 @@ class _DetailedfeaturesState extends State<Detailedfeatures> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Doholdpage()),
+                        MaterialPageRoute(
+                            builder: (context) => const Doholdpage()),
                       );
                     },
                   ),

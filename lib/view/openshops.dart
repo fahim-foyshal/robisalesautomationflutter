@@ -1,14 +1,19 @@
 // Import the necessary libraries
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
+import 'package:image_picker/image_picker.dart';
 
 // Create a new StatefulWidget class
-class AddShopPage extends StatefulWidget {
+class openshops extends StatefulWidget {
   @override
-  _AddShopPageState createState() => _AddShopPageState();
+  _openshopsState createState() => _openshopsState();
 }
+
 // Create a corresponding State class
-class _AddShopPageState extends State<AddShopPage> {
+class _openshopsState extends State<openshops> {
+  String? imagedata;
   // Define variables to store the entered shop details
   String _shopName = '';
   String _shopAddress = '';
@@ -24,6 +29,7 @@ class _AddShopPageState extends State<AddShopPage> {
       },
     );
   }
+
   void onShopAddressChanged(String value) {
     setState(
       () {
@@ -31,6 +37,7 @@ class _AddShopPageState extends State<AddShopPage> {
       },
     );
   }
+
   void onShopOwnerNameChanged(String value) {
     setState(
       () {
@@ -38,6 +45,7 @@ class _AddShopPageState extends State<AddShopPage> {
       },
     );
   }
+
   void onShopOwnerNumberChnangd(String value) {
     setState(
       () {
@@ -45,6 +53,7 @@ class _AddShopPageState extends State<AddShopPage> {
       },
     );
   }
+
   void onShopManagerNameChanged(String value) {
     setState(
       () {
@@ -52,6 +61,7 @@ class _AddShopPageState extends State<AddShopPage> {
       },
     );
   }
+
   void onShopManagerNumberChanged(String value) {
     setState(
       () {
@@ -59,6 +69,7 @@ class _AddShopPageState extends State<AddShopPage> {
       },
     );
   }
+
   String selectedOption1 = 'Please Select';
   List<String> dropdownOptions1 = [
     'Please Select',
@@ -102,6 +113,24 @@ class _AddShopPageState extends State<AddShopPage> {
     'Option 2',
     'Option 3',
   ];
+
+  void handleImageUpload() async {
+    final picker = ImagePicker();
+    setState(() {});
+    final XFile? pickedFile =
+        await picker.pickImage(source: ImageSource.camera);
+
+    if (pickedFile != null) {
+      setState(() {
+        imagedata = pickedFile.path;
+      });
+
+      print("Image URL: $imagedata");
+    } else {
+      setState(() {});
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,17 +153,22 @@ class _AddShopPageState extends State<AddShopPage> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.7,
                 height: 150,
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Implement image picking logic here
-                  },
-                  child: const Text(
-                    'Add Image',
-                    style: TextStyle(
-                      fontFamily: "monospace",
-                    ),
-                  ),
-                ),
+                child: imagedata != null
+                    ? Image.file(
+                        File(imagedata!),
+                        fit: BoxFit.fill,
+                      )
+                    : ElevatedButton(
+                        onPressed: () {
+                          handleImageUpload();
+                        },
+                        child: const Text(
+                          'Add Image',
+                          style: TextStyle(
+                            fontFamily: "monospace",
+                          ),
+                        ),
+                      ),
               ),
               const SizedBox(height: 15.0),
               Card(
@@ -710,8 +744,6 @@ class _AddShopPageState extends State<AddShopPage> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-
-
                         //Snackbar
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
