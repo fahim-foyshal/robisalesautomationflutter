@@ -132,10 +132,10 @@ class _AllMenuContentState extends State<AllMenuContent> {
             color: const Color(0xFFC85250),
             text: 'Attendance',
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => Attendance()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Attendance()),
+              );
             },
           ),
           buildCard(

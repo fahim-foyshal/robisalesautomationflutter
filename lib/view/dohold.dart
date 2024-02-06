@@ -22,14 +22,17 @@ class _DoholdpageState extends State<Doholdpage> {
     'Item 4',
   ];
 
-  // Helper function to add leading zero if necessary
+
   String _addLeadingZero(int value) {
     return value < 10 ? '0$value' : '$value';
   }
+
   String _getCurrentDateAndTime() {
     DateTime now = DateTime.now();
-    String formattedDate = '${now.day}-${_addLeadingZero(now.month)}-${_addLeadingZero(now.year)}';
-    String formattedTime = '${_get12HourFormat(now.hour)}:${_addLeadingZero(now.minute)}:${_addLeadingZero(now.second)} ${_getAMPM(now.hour)}';
+    String formattedDate =
+        '${now.day}-${_addLeadingZero(now.month)}-${now.year}';
+    String formattedTime =
+        '${_get12HourFormat(now.hour)}:${_addLeadingZero(now.minute)}:${_addLeadingZero(now.second)} ${_getAMPM(now.hour)}';
     return '$formattedDate $formattedTime';
   }
 
@@ -41,8 +44,6 @@ class _DoholdpageState extends State<Doholdpage> {
   String _getAMPM(int hour) {
     return hour >= 12 ? 'PM' : 'AM';
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +72,7 @@ class _DoholdpageState extends State<Doholdpage> {
                 margin: EdgeInsets.all(8),
                 child: ListTile(
                   title: Text("DO Number ${items[index]}"),
-                  subtitle: Text(currentDateAndTime),
+                  subtitle: Text("Chalan Date: $currentDateAndTime"),
                   trailing: Text("Shopname ${shopnamrs[index]}"),
                   onTap: () {
                     // Handle item tap (e.g., navigate to a details screen)
