@@ -724,6 +724,7 @@ class _openshopsState extends State<openshops> {
                           SnackBar(
                             content: Text("Shop Added"),
                             backgroundColor: Appcolors.primary,
+                            duration: Duration(seconds: 2),
                           ),
                         );
                       },
@@ -749,6 +750,7 @@ class _openshopsState extends State<openshops> {
                           SnackBar(
                             content: Text("Discard"),
                             backgroundColor: Appcolors.primary,
+                            duration: Duration(seconds: 2),
                           ),
                         );
                       },
