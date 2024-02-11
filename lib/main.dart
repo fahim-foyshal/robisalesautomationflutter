@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:robisalesautomation/services/notification_service.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 import 'package:robisalesautomation/view/loginpage.dart';
 
@@ -14,7 +15,8 @@ import 'package:robisalesautomation/view/loginpage.dart';
 //   );
 // }
 
-void main() {
+void main() async{
+  await NotificationService.initializeNotification();
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {

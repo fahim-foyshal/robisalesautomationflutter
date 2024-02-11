@@ -67,10 +67,6 @@
 //   }
 // }
 
-
-
-
-
 import 'package:flutter/material.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 
@@ -91,34 +87,48 @@ class OrderDeliveryTable extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: DataTable(
-          headingRowColor: MaterialStateProperty.all<Color>(Appcolors.secondary),
+          headingRowColor:
+              MaterialStateProperty.all<Color>(Appcolors.secondary),
           columnSpacing: 10,
           columns: const [
-            DataColumn(label: Text('SL', style: TextStyle(color: Colors.white))),
-            DataColumn(label: Text('Item Name', style: TextStyle(color: Colors.white),)),
-            DataColumn(label: Text('Rate', style: TextStyle(color: Colors.white))),
-            DataColumn(label: Text('STK', style: TextStyle(color: Colors.white))),
-            DataColumn(label: Text('OQ', style: TextStyle(color: Colors.white))),
-            DataColumn(label: Text('UQ', style: TextStyle(color: Colors.white))),
-            DataColumn(label: Text('CQ', style: TextStyle(color: Colors.white))),
+            DataColumn(
+                label: Text('SL', style: TextStyle(color: Colors.white))),
+            DataColumn(
+                label: Text(
+              'Item Name',
+              style: TextStyle(color: Colors.white),
+            )),
+            DataColumn(
+                label: Text('Rate', style: TextStyle(color: Colors.white))),
+            DataColumn(
+                label: Text('STK', style: TextStyle(color: Colors.white))),
+            DataColumn(
+                label: Text('OQ', style: TextStyle(color: Colors.white))),
+            DataColumn(
+                label: Text('UQ', style: TextStyle(color: Colors.white))),
+            DataColumn(
+                label: Text('CQ', style: TextStyle(color: Colors.white))),
           ],
           rows: [
             ...List<DataRow>.generate(
               tableData.length,
-                  (index) => DataRow(
+              (index) => DataRow(
                 cells: [
                   DataCell(Text((index + 1).toString())),
                   DataCell(
                     SingleChildScrollView(
+
                       scrollDirection: Axis.vertical,
                       child: Container(
-                        constraints: BoxConstraints(maxWidth: 100), // Adjust the max width as needed
+                        constraints: BoxConstraints(maxWidth: 100),
+                        // Adjust the max width as needed
                         child: Text(
                           tableData[index]['Item'].toString(),
                           softWrap: true,
                         ),
                       ),
-                    ),),
+                    ),
+                  ),
                   DataCell(Text(tableData[index]['Rate'].toString())),
                   DataCell(Text(tableData[index]['STK'].toString())),
                   DataCell(Text(tableData[index]['OQ'].toString())),

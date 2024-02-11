@@ -178,12 +178,13 @@
 //   }
 // }
 
-
+import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
 import 'package:robisalesautomation/model/OrderDeliveryTable.dart';
 
 import 'package:robisalesautomation/main.dart';
+import 'package:robisalesautomation/services/notification_service.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 
 //
@@ -442,7 +443,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                 elevation: 20,
                 child: Container(
                   padding: const EdgeInsets.all(8),
-                  child:  Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -589,7 +590,11 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async{
+                        await NotificationService.showNotification(
+                          title: "Title of the notification",
+                          body: "Body of the notification",
+                        );
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text("Discard Delivery"),
@@ -611,8 +616,13 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                       "Discard Delivery",
                       style: TextStyle(color: Colors.white),
                     ),
-                  )
+                  ),
                 ],
+
+
+
+
+
               ),
             ),
           ],
@@ -621,10 +631,3 @@ class _OrderdeliveryState extends State<Orderdelivery> {
     );
   }
 }
-
-
-
-
-
-
-
