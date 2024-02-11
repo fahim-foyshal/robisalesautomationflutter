@@ -146,6 +146,22 @@ class _AllMenuContentState extends State<AllMenuContent> {
               // Add navigation logic here
             },
           ),
+          buildCard(
+            icon: FontAwesomeIcons.plus,
+            color: const Color(0xFFC85250),
+            text: 'Add order',
+            onTap: () {
+              // Add navigation logic here
+            },
+          ),
+          buildCard(
+            icon: FontAwesomeIcons.shopLock,
+            color: const Color(0xFFC85250),
+            text: 'Add shop',
+            onTap: () {
+              // Add navigation logic here
+            },
+          ),
           // Add more cards as needed
           // ...
         ],
