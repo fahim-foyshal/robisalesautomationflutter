@@ -15,7 +15,7 @@ class DistributerList extends StatefulWidget {
       distributrname: "fahim foysal",
       distributrcode: 'ADFD86678',
       image:
-          'https://scontent.fjsr3-1.fna.fbcdn.net/v/t39.30808-6/318176744_1594740380986400_5480603979965264423_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEonnVBi6BxR_ua7QYZLzswqAXar8ezdsKoBdqvx7N2wu7Fy4kDb6kS_vUlg75dMLnuLuWIf5z6rbyYMUZrCPSF&_nc_ohc=g2soalCbrsAAX9AxZqU&_nc_ht=scontent.fjsr3-1.fna&oh=00_AfDI-B6womtnMPiQ-2A-RmNhTGtfJMntyqljKM4luyTMHg&oe=65B405D1',
+          'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_300/https://www.corporatephotographerslondon.com/wp-content/uploads/2021/07/LinkedIn_profile_photo_sample_1-300x300.jpg',
     ),
     DistributorData(
       distributrname: "Ashraful Haque",
@@ -25,6 +25,7 @@ class DistributerList extends StatefulWidget {
     ),
   ];
 }
+
 class _DistributerListState extends State<DistributerList>
     with SingleTickerProviderStateMixin {
   bool isFilterSheetVisible = false;

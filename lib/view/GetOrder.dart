@@ -237,7 +237,7 @@ class _GetOrderState extends State<GetOrder> {
                 child: DropdownButton2<ItemInfo>(
                   isExpanded: true,
                   hint: Text(
-                    'Select Shop',
+                    'Select Item',
                     style: TextStyle(
                       fontSize: 14,
                       color: Theme.of(context).hintColor,
