@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'dart:convert';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
@@ -6,18 +8,26 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:robisalesautomation/model/ItemInfo.dart';
 
 import 'package:dio/dio.dart';
+import 'package:robisalesautomation/model/User.dart';
+import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 
 class GetOrder extends StatefulWidget {
-  final int doNo;
+  final String doNo;
   final String shopName;
   final String delaerCode;
+  final String shopId;
+  final String? doDate;
+  // final String? previousentitems;
 
   const GetOrder({
     Key? key,
     required this.doNo,
     required this.shopName,
     required this.delaerCode,
+    required this.shopId,
+    this.doDate,
+    // this.previousentitems
   }) : super(key: key);
 
   @override
@@ -38,19 +48,58 @@ class _GetOrderState extends State<GetOrder> {
     fetchData();
   }
 
-  void fetchData() async {
-    final apiUrl = 'https://ezzy-erp.com/newapp/api/api_itemInfo_List.php';
+  void UpdateDoStatus() async {
+    final apiUrl =
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_doDetails_statusUpdate.php';
     final dio = Dio();
+    final data = [
+      {
+        'do_no': widget.doNo,
+        'do_status': "CHECKED",
+      }
+    ];
 
     try {
       final response = await dio.post(
         apiUrl,
+        data: data,
         options: Options(
           headers: {'Content-Type': 'application/json'},
         ),
       );
 
       if (response.statusCode == 200) {
+        print(response.data);
+      } else {
+        print('Failed to fetch data. Status code: ${response.statusCode}');
+      }
+    } catch (error) {
+      print('Error: $error');
+    }
+  }
+
+  void fetchData() async {
+    UserDatabase userDatabase = UserDatabase();
+    User? user = await userDatabase.getUser();
+    final apiUrl =
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_itemInfo_List.php';
+    final dio = Dio();
+    final dealerCode = user?.dealerCode;
+    final jsonData = [
+      {"dealer_code": dealerCode}
+    ];
+
+    try {
+      final response = await dio.post(
+        apiUrl,
+        data: jsonData,
+        options: Options(
+          headers: {'Content-Type': 'application/json'},
+        ),
+      );
+
+      if (response.statusCode == 200) {
+        print(response.data);
         List<Map<String, dynamic>> jsonList =
             (json.decode(response.data) as List<dynamic>)
                 .cast<Map<String, dynamic>>();
@@ -77,7 +126,8 @@ class _GetOrderState extends State<GetOrder> {
   }
 
   void sendApiRequest() async {
-    final apiUrl = 'https://ezzy-erp.com/newapp/api/api_doDetails.php';
+    final apiUrl =
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_doDetails.php';
     final currentDateISOString = DateTime.now().toIso8601String();
     final dio = Dio();
 
@@ -85,6 +135,7 @@ class _GetOrderState extends State<GetOrder> {
     final data = [
       {
         'do_no': widget.doNo,
+        'dealer_code_shop': widget.shopId,
         'do_date': currentDateISOString,
         'item_id': selectedItemDetails?.itemId,
         'dealer_code': widget.delaerCode,
@@ -112,8 +163,17 @@ class _GetOrderState extends State<GetOrder> {
         // Add sent item to the list
         if (selectedItemDetails != null) {
           // Set the totalAmount using the setter
-          selectedItemDetails?.setTotalAmount(totalAmount.toString());
-          sentItems.add(selectedItemDetails!);
+          ItemInfo newItem = ItemInfo(
+            itemName: selectedItemDetails!.itemName,
+            itemId: selectedItemDetails!.itemId,
+            tPrice: selectedItemDetails!.tPrice,
+            nspPer: selectedItemDetails!.nspPer,
+            packSize: selectedItemDetails!.packSize,
+          );
+          // Set the totalAmount using the setter
+          newItem.setTotalAmount(totalAmount.toString());
+          newItem.setTotalQuantity(selecteQuantity.toString());
+          sentItems.add(newItem);
         }
         setState(() {
           // Clear fields after sending request
@@ -353,18 +413,39 @@ class _GetOrderState extends State<GetOrder> {
                           Text('${selectedItemDetails?.unitName ?? " "}'),
                         ],
                       ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isExpanded = !isExpanded;
-                          });
-                          if (isExpanded) {
-                            _showQuantityDialog();
-                          }
-                        },
-                        icon: FaIcon(
-                          FontAwesomeIcons.plus,
-                          color: Colors.white,
+                      Column(
+                        children: [
+                          Text(
+                            'Stock',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                color: Colors.deepPurple),
+                          ),
+                          Text('${selectedItemDetails?.itemStock ?? " "}'),
+                        ],
+                      ),
+                      Visibility(
+                        visible: double.tryParse(
+                                selectedItemDetails?.itemStock ?? "0") !=
+                            0, // Show the button if itemStock is 0
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.deepPurple,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                isExpanded = !isExpanded;
+                              });
+                              if (isExpanded) {
+                                _showQuantityDialog();
+                              }
+                            },
+                            icon: FaIcon(
+                              FontAwesomeIcons.plus,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -377,9 +458,22 @@ class _GetOrderState extends State<GetOrder> {
                   padding: const EdgeInsets.all(8.0),
                   child: Card(
                     elevation: 5,
-                    child: ListTile(
-                      title: Text(item.itemName ?? ''),
-                      subtitle: Text('Total Amount: ${item.totalAmount ?? ''}'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text("${item.itemName}"),
+                              Text("Quantity: ${item.totalQuantity}")
+                            ],
+                          ),
+                          Text("Total : ${item.totalAmount}")
+                        ],
+                      ),
                     ),
                   ),
                 )),
@@ -402,6 +496,28 @@ class _GetOrderState extends State<GetOrder> {
                   ),
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 60,
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                // Implement your logic for the first button
+              },
+              child: Text('Home'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                UpdateDoStatus();
+                // Implement your logic for the second button
+              },
+              child: Text('Confirm'),
             ),
           ],
         ),

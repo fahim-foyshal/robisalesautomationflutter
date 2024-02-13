@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robisalesautomation/view/Attendance%20.dart';
+import 'package:robisalesautomation/view/DeliveredOrderList.dart';
 import 'package:robisalesautomation/view/InitiateOrder.dart';
+import 'package:robisalesautomation/view/PendingDoList.dart';
 import 'package:robisalesautomation/view/distributer.dart';
 import 'package:robisalesautomation/view/openshops.dart';
+import 'package:robisalesautomation/view/orderlist.dart';
 
 class AllMenuContent extends StatefulWidget {
   const AllMenuContent({super.key});
@@ -52,9 +55,13 @@ class _AllMenuContentState extends State<AllMenuContent> {
           buildCard(
             icon: FontAwesomeIcons.floppyDisk,
             color: const Color(0xFFFFCF81),
-            text: 'Saved Info',
+            text: 'Delivered List',
             onTap: () {
-              // Add navigation logic here
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const DeliveredOrderList()),
+              );
             },
           ),
           buildCard(
@@ -62,7 +69,10 @@ class _AllMenuContentState extends State<AllMenuContent> {
             color: const Color(0xFFB3A492),
             text: 'Pending',
             onTap: () {
-              // Add navigation logic here
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PendingDoList()),
+              );
             },
           ),
           buildCard(
@@ -167,6 +177,17 @@ class _AllMenuContentState extends State<AllMenuContent> {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => openshops()),
+              ); // Add navigation logic here
+            },
+          ),
+          buildCard(
+            icon: FontAwesomeIcons.truck,
+            color: const Color(0xFFC85250),
+            text: 'Delivery',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Orderlist()),
               ); // Add navigation logic here
             },
           ),

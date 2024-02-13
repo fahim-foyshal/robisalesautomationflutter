@@ -1,22 +1,26 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:url_launcher/url_launcher.dart';
 
-import 'package:robisalesautomation/model/OrderDeliveryTable.dart';
-
+import 'package:robisalesautomation/model/DeliveredOrderReportTable.dart';
 import 'package:robisalesautomation/main.dart';
 import 'package:robisalesautomation/model/User.dart';
 import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 
-class Orderdelivery extends StatefulWidget {
+class DeliveredOrderReport extends StatefulWidget {
   final String doNo;
   final String shopName;
   final String delaerCode;
   final String doDate;
 
-  const Orderdelivery({
+  const DeliveredOrderReport({
     Key? key,
     required this.doNo,
     required this.shopName,
@@ -25,10 +29,10 @@ class Orderdelivery extends StatefulWidget {
   });
 
   @override
-  State<Orderdelivery> createState() => _OrderdeliveryState();
+  State<DeliveredOrderReport> createState() => _DeliveredOrderReportState();
 }
 
-class _OrderdeliveryState extends State<Orderdelivery> {
+class _DeliveredOrderReportState extends State<DeliveredOrderReport> {
   late String chalanDate;
   List<Map<String, dynamic>> tableData = [];
 
@@ -55,7 +59,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
     UserDatabase userDatabase = UserDatabase();
     User? user = await userDatabase.getUser();
     final apiUrl =
-        'https://starlineerp.com/CloudERP/sec_mod/api/api_do_details_list.php';
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_chalan_details.php';
     final dio = Dio();
     final dealerCode = user?.dealerCode;
     final jsonData = [
@@ -118,6 +122,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
         //     duration: Duration(seconds: 2),
         //   ),
         // );
+        generatePDF(context); // Call the function to generate the PDF
       } else {
         // Handle unsuccessful submission
         print('Failed to submit delivery. Status code: ${response.statusCode}');
@@ -126,6 +131,34 @@ class _OrderdeliveryState extends State<Orderdelivery> {
       // Handle errors
       print('Error submitting delivery: $error');
     }
+  }
+
+  Future<void> generatePDF(BuildContext context) async {
+    // Create a PDF document
+    final pdf = pw.Document();
+
+    // Add content to the PDF document
+    pdf.addPage(
+      pw.Page(
+        build: (pw.Context context) {
+          return pw.Center(
+            child: pw.Text('This is a PDF generated from Flutter'),
+          );
+        },
+      ),
+    );
+
+    // Save the PDF document to a file
+    final String dir = (await getApplicationDocumentsDirectory()).path;
+    final String path = '$dir/example.pdf';
+    final File file = File(path);
+    await file.writeAsBytes(await pdf.save());
+
+    // Print the path of the generated PDF file
+    print('PDF saved to: $path');
+
+    // Launch the default PDF viewer to open the PDF file
+    await launch(path);
   }
 
   @override
@@ -215,7 +248,7 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                   ),
                 ),
                 padding: EdgeInsets.all(6),
-                child: OrderDeliveryTable(
+                child: DeliveredOrderReportTable(
                     tableData: tableData, onUpdate: updateTableData)),
             Container(
               padding: const EdgeInsets.all(8),
@@ -249,30 +282,29 @@ class _OrderdeliveryState extends State<Orderdelivery> {
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text("Discard Delivery"),
-                          backgroundColor: Appcolors.primary,
-                          duration: Duration(seconds: 2),
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      elevation: 8.0,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20.0, vertical: 12.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      backgroundColor: Colors.red,
-                    ),
-                    child: const Text(
-                      "Discard Delivery",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //       SnackBar(
+                  //         content: Text("Discard Delivery"),
+                  //         backgroundColor: Appcolors.primary,
+                  //         duration: Duration(seconds: 2),
+                  //       ),
+                  //     );
+                  //   },
+                  //   style: ElevatedButton.styleFrom(
+                  //     elevation: 8.0,
+                  //     padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
+                  //     shape: RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.circular(8.0),
+                  //     ),
+                  //     backgroundColor: Colors.red,
+                  //   ),
+                  //   child: const Text(
+                  //     "Discard Delivery",
+                  //     style: TextStyle(color: Colors.white),
+                  //   ),
+                  // )
                 ],
               ),
             ),

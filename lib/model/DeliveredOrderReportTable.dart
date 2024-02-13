@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 
-class OrderDeliveryTable extends StatelessWidget {
+class DeliveredOrderReportTable extends StatelessWidget {
   final List<Map<String, dynamic>> tableData;
   final Function(int index, Map<String, dynamic> newData) onUpdate;
 
-  OrderDeliveryTable({required this.tableData, required this.onUpdate});
+  DeliveredOrderReportTable({required this.tableData, required this.onUpdate});
 
   @override
   Widget build(BuildContext context) {
@@ -54,18 +54,19 @@ class OrderDeliveryTable extends StatelessWidget {
               DataCell(Text(tableData[index]['rate'].toString())),
               DataCell(Text(tableData[index]['stock'].toString())),
               DataCell(Text(tableData[index]['orderquantity'].toString())),
+              DataCell(Text(tableData[index]['CQ'].toString())),
               // DataCell(Text(tableData[index]['UQ'].toString())),
-              DataCell(
-                TextFormField(
-                  initialValue: tableData[index]['CQ'].toString(),
-                  onChanged: (value) {
-                    onUpdate(index, {
-                      ...tableData[index],
-                      'CQ': int.parse(value),
-                    });
-                  },
-                ),
-              ),
+              // DataCell(
+              //   TextFormField(
+              //     initialValue: tableData[index]['CQ'].toString(),
+              //     onChanged: (value) {
+              //       onUpdate(index, {
+              //         ...tableData[index],
+              //         'CQ': int.parse(value),
+              //       });
+              //     },
+              //   ),
+              // ),
             ],
           ),
         ),

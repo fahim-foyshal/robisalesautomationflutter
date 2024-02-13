@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:dropdown_search/dropdown_search.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
@@ -17,7 +15,7 @@ class InitiateOrder extends StatefulWidget {
 }
 
 class _InitiateOrderState extends State<InitiateOrder> {
-  List<String> items = [];
+  List<Shop> items = [];
   List<String> status_list = ['No Order', "Get Order", "Close"];
   User? currentUser;
 
@@ -35,7 +33,8 @@ class _InitiateOrderState extends State<InitiateOrder> {
         currentUser = user;
       });
     }
-    final apiUrl = 'https://ezzy-erp.com/newapp/api/api_findShopByDealer.php';
+    final apiUrl =
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_findShopByDealer.php';
     final dealerCode = user?.dealerCode;
     final jsonData = [
       {"dealer_code": dealerCode}
@@ -61,7 +60,7 @@ class _InitiateOrderState extends State<InitiateOrder> {
             (jsonList as List).map((data) => Shop.fromJson(data)).toList();
 
         setState(() {
-          items = decodedShops.map((shop) => shop.shopName ?? "").toList();
+          items = decodedShops;
         });
       } else {
         print('Failed to fetch data. Status code: ${response.statusCode}');
@@ -72,18 +71,24 @@ class _InitiateOrderState extends State<InitiateOrder> {
   }
 
   void submitOrder() async {
-    if (selectedShop == null || selectedStatus == null || remarks == null) {
+    if (selectedshopdetails == null ||
+        selectedStatus == null ||
+        remarks == null) {
       // Display an error message or handle validation
       return;
     }
 
-    final apiUrl = 'https://ezzy-erp.com/newapp/api/api_ss_doMaster.php';
+    final apiUrl =
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_ss_doMaster.php';
     final currentDateISOString = DateTime.now().toIso8601String();
     final dealerCode = currentUser?.dealerCode ?? '';
+    print("hhhhhhhhh");
+    final shopId = selectedshopdetails?.dealerCode ?? '';
+
     final arrayitem = [
       {
         'do_Date': currentDateISOString,
-        'dealer_code': dealerCode,
+        'dealer_code': shopId,
         'shop_name': selectedShop,
         'status': 'MANUAL',
         'remarks': remarks,
@@ -91,6 +96,7 @@ class _InitiateOrderState extends State<InitiateOrder> {
         'memo': '1',
         'longitude': '',
         'latitude': '',
+        'dealer_depot_id': dealerCode,
         'upload_status': 1,
       }
     ];
@@ -108,17 +114,21 @@ class _InitiateOrderState extends State<InitiateOrder> {
 
       if (response.statusCode == 200) {
         // Handle success, maybe show a success message
+
         Map<String, dynamic> responseData = json.decode(response.data);
 
         if (responseData['message'] == 'Done' &&
             selectedStatus == "Get Order") {
-          final int doNo = responseData['do_no'] ?? 0;
+          final String doNo = responseData['do_no'] ?? 0;
           final String shopName = selectedShop ?? " ";
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => GetOrder(
-                  doNo: doNo, shopName: shopName, delaerCode: dealerCode),
+                  doNo: doNo,
+                  shopName: shopName,
+                  delaerCode: dealerCode,
+                  shopId: shopId),
             ),
           );
         }
@@ -139,6 +149,7 @@ class _InitiateOrderState extends State<InitiateOrder> {
   String? selectedShop;
   String? selectedStatus;
   String? remarks;
+  Shop? selectedshopdetails;
   final TextEditingController textEditingController = TextEditingController();
 
   @override
@@ -179,7 +190,7 @@ class _InitiateOrderState extends State<InitiateOrder> {
           children: [
             Card(
               child: DropdownButtonHideUnderline(
-                child: DropdownButton2<String>(
+                child: DropdownButton2<Shop>(
                   isExpanded: true,
                   hint: Text(
                     'Select Shop',
@@ -192,17 +203,17 @@ class _InitiateOrderState extends State<InitiateOrder> {
                       .map((item) => DropdownMenuItem(
                             value: item,
                             child: Text(
-                              item,
+                              item.shopName as String,
                               style: const TextStyle(
                                 fontSize: 14,
                               ),
                             ),
                           ))
                       .toList(),
-                  value: selectedShop,
+                  value: selectedshopdetails,
                   onChanged: (value) {
                     setState(() {
-                      selectedShop = value;
+                      selectedshopdetails = value;
                     });
                   },
                   buttonStyleData: ButtonStyleData(

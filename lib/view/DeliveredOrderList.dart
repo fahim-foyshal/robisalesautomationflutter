@@ -6,16 +6,17 @@ import 'package:robisalesautomation/model/DistributorData.dart';
 import 'package:robisalesautomation/model/User.dart';
 import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
+import 'package:robisalesautomation/view/DeliveredOrderReport.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
 
-class Orderlist extends StatefulWidget {
-  const Orderlist({Key? key}) : super(key: key);
+class DeliveredOrderList extends StatefulWidget {
+  const DeliveredOrderList({Key? key}) : super(key: key);
 
   @override
-  State<Orderlist> createState() => _OrderlistState();
+  State<DeliveredOrderList> createState() => _DeliveredOrderListState();
 }
 
-class _OrderlistState extends State<Orderlist> {
+class _DeliveredOrderListState extends State<DeliveredOrderList> {
   List<Map<String, dynamic>> doitems = [];
 
   @override
@@ -32,7 +33,7 @@ class _OrderlistState extends State<Orderlist> {
     final dio = Dio();
     final dealerCode = user?.dealerCode;
     final jsonData = [
-      {"dealercode": dealerCode, "do_status": "CHECKED"}
+      {"dealercode": dealerCode, "do_status": "COMPLETED"}
     ];
 
     try {
@@ -45,7 +46,6 @@ class _OrderlistState extends State<Orderlist> {
       );
 
       if (response.statusCode == 200) {
-        print(response.data);
         List<Map<String, dynamic>> jsonList =
             (json.decode(response.data) as List<dynamic>)
                 .cast<Map<String, dynamic>>();
@@ -87,7 +87,7 @@ class _OrderlistState extends State<Orderlist> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Order List',
+          'Delivered List',
           style: TextStyle(
             color: Colors.white,
             fontFamily: "monospace",
@@ -106,7 +106,7 @@ class _OrderlistState extends State<Orderlist> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Orderdelivery(
+                    builder: (context) => DeliveredOrderReport(
                       doNo: doitems[index]['do_no'],
                       shopName: doitems[index]['shop_name'],
                       doDate: doitems[index]['do_date'],

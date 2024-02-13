@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -13,7 +15,7 @@ void main() async {
   UserDatabase userDatabase = UserDatabase();
   bool isUserLoggedIn = await userDatabase.isUserLoggedIn();
 
-  runApp(MyApp(initialRoute: isUserLoggedIn ? '/hom`epage' : '/login'));
+  runApp(MyApp(initialRoute: isUserLoggedIn ? '/homepage' : '/login'));
 }
 
 class MyApp extends StatelessWidget {
@@ -77,7 +79,6 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 
-
   @override
   void dispose() {
     _animationController.dispose();
@@ -91,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen>
       body: Center(
         child: ScaleTransition(
           scale: _animation,
-          child: Image.asset('assets/images/robilogo.png'),
+          child: Image.asset('assets/images/starline.png'),
         ),
       ),
     );

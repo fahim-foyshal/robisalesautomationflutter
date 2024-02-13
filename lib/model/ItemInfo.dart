@@ -11,25 +11,26 @@ class ItemInfo {
   final String? tPrice;
   final String? nspPer;
   final String? salesItemType;
+  final String? itemStock;
   String? totalAmount; // Define totalAmount as a nullable String
   String? totalQuantity; // Define totalQuantity as a nullable String
 
-  ItemInfo({
-    this.itemId,
-    this.itemName,
-    this.itemNameShort,
-    this.itemGroup,
-    this.categoryId,
-    this.subcategoryId,
-    this.finishGoodsCode,
-    this.unitName,
-    this.packSize,
-    this.tPrice,
-    this.nspPer,
-    this.salesItemType,
-    this.totalAmount,
-    this.totalQuantity,
-  });
+  ItemInfo(
+      {this.itemId,
+      this.itemName,
+      this.itemNameShort,
+      this.itemGroup,
+      this.categoryId,
+      this.subcategoryId,
+      this.finishGoodsCode,
+      this.unitName,
+      this.packSize,
+      this.tPrice,
+      this.nspPer,
+      this.salesItemType,
+      this.totalAmount,
+      this.totalQuantity,
+      this.itemStock});
 
   // Add a setter for totalAmount
   setTotalAmount(String? amount) {
@@ -57,6 +58,7 @@ class ItemInfo {
       salesItemType: json['sales_item_type'],
       totalAmount: json['total_amount'],
       totalQuantity: json['total_quantity'],
+      itemStock: json['item_stock'],
     );
   }
 

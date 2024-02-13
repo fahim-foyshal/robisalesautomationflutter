@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
     print(loginData);
     try {
       final response = await dio.post(
-        'https://ezzy-erp.com/newapp/api/api_users.php',
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_users.php',
         data: loginData,
       );
 

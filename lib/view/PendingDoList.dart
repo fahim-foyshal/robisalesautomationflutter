@@ -6,16 +6,18 @@ import 'package:robisalesautomation/model/DistributorData.dart';
 import 'package:robisalesautomation/model/User.dart';
 import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
+import 'package:robisalesautomation/view/DeliveredOrderReport.dart';
+import 'package:robisalesautomation/view/GetOrder.dart';
 import 'package:robisalesautomation/view/orderdelivery.dart';
 
-class Orderlist extends StatefulWidget {
-  const Orderlist({Key? key}) : super(key: key);
+class PendingDoList extends StatefulWidget {
+  const PendingDoList({Key? key}) : super(key: key);
 
   @override
-  State<Orderlist> createState() => _OrderlistState();
+  State<PendingDoList> createState() => _PendingDoListState();
 }
 
-class _OrderlistState extends State<Orderlist> {
+class _PendingDoListState extends State<PendingDoList> {
   List<Map<String, dynamic>> doitems = [];
 
   @override
@@ -32,7 +34,7 @@ class _OrderlistState extends State<Orderlist> {
     final dio = Dio();
     final dealerCode = user?.dealerCode;
     final jsonData = [
-      {"dealercode": dealerCode, "do_status": "CHECKED"}
+      {"dealercode": dealerCode, "do_status": "MANUAL"}
     ];
 
     try {
@@ -45,7 +47,6 @@ class _OrderlistState extends State<Orderlist> {
       );
 
       if (response.statusCode == 200) {
-        print(response.data);
         List<Map<String, dynamic>> jsonList =
             (json.decode(response.data) as List<dynamic>)
                 .cast<Map<String, dynamic>>();
@@ -87,7 +88,7 @@ class _OrderlistState extends State<Orderlist> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Order List',
+          'Delivered List',
           style: TextStyle(
             color: Colors.white,
             fontFamily: "monospace",
@@ -106,11 +107,12 @@ class _OrderlistState extends State<Orderlist> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Orderdelivery(
+                    builder: (context) => GetOrder(
                       doNo: doitems[index]['do_no'],
                       shopName: doitems[index]['shop_name'],
                       doDate: doitems[index]['do_date'],
                       delaerCode: doitems[index]['dealer_depot_id'],
+                      shopId: doitems[index]['dealer_code'],
                     ),
                   ),
                 );
