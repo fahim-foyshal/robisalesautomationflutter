@@ -12,29 +12,30 @@ import 'package:robisalesautomation/model/User.dart';
 import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/utility/mycolors.dart';
 
-class GetOrder extends StatefulWidget {
-  final int doNo;
+class ReturnDeatails extends StatefulWidget {
+  final int orNo;
   final String shopName;
   final String delaerCode;
   final String shopId;
-  final String? doDate;
+  final String? orDate;
   // final String? previousentitems;
 
-  const GetOrder({
+  const ReturnDeatails({
     Key? key,
-    required this.doNo,
+    required this.orNo,
     required this.shopName,
     required this.delaerCode,
     required this.shopId,
-    this.doDate,
+    this.orDate,
     // this.previousentitems
   }) : super(key: key);
 
   @override
-  State<GetOrder> createState() => _GetOrderState();
+  State<ReturnDeatails> createState() => _ReturnDeatailsState();
 }
 
-class _GetOrderState extends State<GetOrder> {
+class _ReturnDeatailsState extends State<ReturnDeatails> {
+  User? currentUser;
   List<ItemInfo> itemslistall = [];
   List<ItemInfo> sentItems = []; // List to store sent items
   bool isLoading = true;
@@ -50,13 +51,12 @@ class _GetOrderState extends State<GetOrder> {
 
   void UpdateDoStatus() async {
     final apiUrl =
-        'https://starlineerp.com/CloudERP/sec_mod/api/api_doDetails_statusUpdate.php';
-
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_SalesReturn_statusUpdate.php';
     final dio = Dio();
     final data = [
       {
-        'do_no': widget.doNo,
-        'do_status': "CHECKED",
+        'or_no': widget.orNo,
+        'or_status': "CHECKED",
       }
     ];
 
@@ -82,17 +82,19 @@ class _GetOrderState extends State<GetOrder> {
   void fetchData() async {
     UserDatabase userDatabase = UserDatabase();
     User? user = await userDatabase.getUser();
+
+    if (user != null) {
+      setState(() {
+        currentUser = user;
+      });
+    }
+
     final apiUrl =
         'https://starlineerp.com/CloudERP/sec_mod/api/api_itemInfo_List.php';
-    final apiUrl2 =
-        'https://starlineerp.com/CloudERP/sec_mod/api/api_do_pending_list.php';
     final dio = Dio();
     final dealerCode = user?.dealerCode;
     final jsonData = [
       {"dealer_code": dealerCode}
-    ];
-    final data2 = [
-      {'do_no': widget.doNo}
     ];
 
     try {
@@ -129,65 +131,35 @@ class _GetOrderState extends State<GetOrder> {
     } catch (error) {
       print('Error: $error');
     }
-    try {
-      final response = await dio.post(
-        apiUrl2,
-        data: data2,
-        options: Options(
-          headers: {'Content-Type': 'application/json'},
-        ),
-      );
-
-      if (response.statusCode == 200) {
-        print(response.data);
-        List<Map<String, dynamic>> jsonList =
-            (json.decode(response.data) as List<dynamic>)
-                .cast<Map<String, dynamic>>();
-        setState(() {
-          sentItems = jsonList
-              .asMap()
-              .map((index, data) {
-                ItemInfo itemInfo = ItemInfo.fromJson(data);
-                return MapEntry(
-                  index,
-                  itemInfo,
-                );
-              })
-              .values
-              .toList();
-          isLoading = false;
-        });
-      } else {
-        print('Failed to fetch data. Status code: ${response.statusCode}');
-      }
-    } catch (error) {
-      print('Error: $error');
-    }
   }
 
   void sendApiRequest() async {
     final apiUrl =
-        'https://starlineerp.com/CloudERP/sec_mod/api/api_doDetails.php';
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_sales_return.php';
     final currentDateISOString = DateTime.now().toIso8601String();
+    final dealerCode = currentUser?.dealerCode ?? '';
+    final currentusercode = currentUser?.user ?? '';
     final dio = Dio();
 
     // Prepare data to send in the request
     final data = [
       {
-        'do_no': widget.doNo,
-        'dealer_code_shop': widget.shopId,
-        'do_date': currentDateISOString,
+        'or_no': widget.orNo,
+        'vendor_id': widget.shopId,
+        'vendor_name': widget.shopName,
+        'or_date': widget.orDate,
+        "receive_type": "Sales Return",
         'item_id': selectedItemDetails?.itemId,
-        'dealer_code': widget.delaerCode,
-        't_price': selectedItemDetails?.tPrice,
-        'nsp_per': selectedItemDetails?.nspPer,
-        'pack_size': selectedItemDetails?.packSize,
-        'unit_price': selectedItemDetails?.tPrice,
-        'total_unit': selecteQuantity,
-        'total_amt': totalAmount,
+        'warehouse_id': widget.delaerCode,
+        'rate': selectedItemDetails?.tPrice,
+        'disc': selectedItemDetails?.nspPer,
+        'unit_name': selectedItemDetails?.unitName,
+        'qty': selecteQuantity,
+        'amount': totalAmount,
+        'entry_by': currentusercode,
       }
     ];
-
+    print(data);
     try {
       final response = await dio.post(
         apiUrl,
@@ -293,7 +265,7 @@ class _GetOrderState extends State<GetOrder> {
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text(
-          'Add Order',
+          'Return',
           style: TextStyle(
             color: Colors.white,
             fontFamily: "monospace",
@@ -320,7 +292,7 @@ class _GetOrderState extends State<GetOrder> {
                           color: Appcolors.primary),
                     ),
                     Text(
-                      'DO NO: ${widget.doNo}',
+                      'OR NO: ${widget.orNo}',
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
@@ -453,21 +425,22 @@ class _GetOrderState extends State<GetOrder> {
                           Text('${selectedItemDetails?.unitName ?? " "}'),
                         ],
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            'Stock',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w800,
-                                color: Colors.deepPurple),
-                          ),
-                          Text('${selectedItemDetails?.itemStock ?? " "}'),
-                        ],
-                      ),
+                      // Column(
+                      //   children: [
+                      //     Text(
+                      //       'Stock',
+                      //       style: TextStyle(
+                      //           fontWeight: FontWeight.w800,
+                      //           color: Colors.deepPurple),
+                      //     ),
+                      //     Text('${selectedItemDetails?.itemStock ?? " "}'),
+                      //   ],
+                      // ),
                       Visibility(
-                        visible: double.tryParse(
-                                selectedItemDetails?.itemStock ?? "0") !=
-                            0, // Show the button if itemStock is 0
+                        // visible: double.tryParse(
+                        //         selectedItemDetails?.itemStock ?? "0") !=
+                        //     0, // Show the button if itemStock is 0
+                        visible: true,
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.deepPurple,

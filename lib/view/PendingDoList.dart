@@ -88,7 +88,7 @@ class _PendingDoListState extends State<PendingDoList> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Delivered List',
+          'Pending do List',
           style: TextStyle(
             color: Colors.white,
             fontFamily: "monospace",
@@ -100,6 +100,7 @@ class _PendingDoListState extends State<PendingDoList> {
         child: ListView.builder(
           itemCount: doitems.length,
           itemBuilder: (BuildContext context, int index) {
+            int doNo = int.parse(doitems[index]['do_no']);
             String currentDateAndTime = _getCurrentDateAndTime();
             return InkWell(
               onTap: () {
@@ -108,7 +109,7 @@ class _PendingDoListState extends State<PendingDoList> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => GetOrder(
-                      doNo: doitems[index]['do_no'],
+                      doNo: int.parse(doitems[index]['do_no']),
                       shopName: doitems[index]['shop_name'],
                       doDate: doitems[index]['do_date'],
                       delaerCode: doitems[index]['dealer_depot_id'],

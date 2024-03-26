@@ -8,15 +8,16 @@ import 'package:robisalesautomation/utility/mycolors.dart';
 import 'package:robisalesautomation/model/User.dart';
 import 'package:robisalesautomation/sqldatabasees/UserDatabase.dart';
 import 'package:robisalesautomation/view/GetOrder.dart';
+import 'package:robisalesautomation/view/ReturnDeatails.dart';
 
-class InitiateOrder extends StatefulWidget {
+class InitiateReturn extends StatefulWidget {
   @override
-  _InitiateOrderState createState() => _InitiateOrderState();
+  _InitiateReturnState createState() => _InitiateReturnState();
 }
 
-class _InitiateOrderState extends State<InitiateOrder> {
+class _InitiateReturnState extends State<InitiateReturn> {
   List<Shop> items = [];
-  List<String> status_list = ['No Order', "Get Order", "Close"];
+  List<String> status_list = ['No Order', "Return", "Close"];
   User? currentUser;
 
   @override
@@ -79,31 +80,32 @@ class _InitiateOrderState extends State<InitiateOrder> {
     }
 
     final apiUrl =
-        'https://starlineerp.com/CloudERP/sec_mod/api/api_ss_doMaster.php';
+        'https://starlineerp.com/CloudERP/sec_mod/api/api_ss_receive_master.php';
     final currentDateISOString = DateTime.now().toIso8601String();
     final dealerCode = currentUser?.dealerCode ?? '';
-    final currentuser = currentUser?.user ?? '';
+    final currentusercode = currentUser?.user ?? '';
 
     final String shopId = selectedshopdetails?.dealerCode ?? '';
+    final String selectedShopname = selectedshopdetails?.shopName ?? '';
 
     final arrayitem = [
       {
-        'do_Date': currentDateISOString,
-        'dealer_code': shopId,
-        'shop_name': selectedShop,
+        'return_Date': currentDateISOString,
+        'vendor_id': shopId,
+        'vendor_name': selectedShopname,
         'status': 'MANUAL',
         'remarks': remarks,
         'visit': '1',
         'memo': '1',
         'longitude': '',
         'latitude': '',
-        'entry_by': currentuser,
+        'entry_by': currentusercode,
         'dealer_depot_id': dealerCode,
-        'shop_status': "Get Order",
         'upload_status': 1,
+        'receive_type': 'Sales Return'
       }
     ];
-
+    print(arrayitem);
     final dio = Dio();
 
     try {
@@ -117,20 +119,20 @@ class _InitiateOrderState extends State<InitiateOrder> {
 
       if (response.statusCode == 200) {
         // Handle success, maybe show a success message
+        print(response.data);
 
         Map<String, dynamic> responseData = json.decode(response.data);
 
-        if (responseData['message'] == 'Done' &&
-            selectedStatus == "Get Order") {
-          final int doNo = responseData['do_no'] ?? '';
+        if (responseData['message'] == 'Done' && selectedStatus == "Return") {
+          final int orNo = responseData['or_no'] ?? '';
           final String shopName = selectedShop ?? " ";
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => GetOrder(
-                  doNo: doNo,
-                  shopName: shopName,
-                  doDate: currentDateISOString,
+              builder: (context) => ReturnDeatails(
+                  orNo: orNo,
+                  shopName: selectedShopname,
+                  orDate: currentDateISOString,
                   delaerCode: dealerCode,
                   shopId: shopId),
             ),
@@ -169,7 +171,7 @@ class _InitiateOrderState extends State<InitiateOrder> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Initiate Order',
+          'Initiate Return',
           style: TextStyle(
             color: Colors.white,
             fontFamily: "monospace",

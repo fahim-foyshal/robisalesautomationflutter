@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robisalesautomation/view/Attendance%20.dart';
 import 'package:robisalesautomation/view/DeliveredOrderList.dart';
 import 'package:robisalesautomation/view/InitiateOrder.dart';
+import 'package:robisalesautomation/view/InitiateReturn.dart';
 import 'package:robisalesautomation/view/PendingDoList.dart';
 import 'package:robisalesautomation/view/distributer.dart';
 import 'package:robisalesautomation/view/openshops.dart';
@@ -37,10 +38,14 @@ class _AllMenuContentState extends State<AllMenuContent> {
             },
           ),
           buildCard(
-            icon: FontAwesomeIcons.shop,
+            icon: FontAwesomeIcons.retweet,
             color: const Color(0xFFD9EDBF),
-            text: 'Orders Amount',
+            text: 'Sales Return',
             onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InitiateReturn()),
+              );
               // Add navigation logic here
             },
           ),

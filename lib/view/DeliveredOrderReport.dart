@@ -278,7 +278,7 @@ class _DeliveredOrderReportState extends State<DeliveredOrderReport> {
                       backgroundColor: Colors.blueAccent,
                     ),
                     child: const Text(
-                      "Submit Delivery",
+                      "Report",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

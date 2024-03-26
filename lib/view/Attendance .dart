@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'dart:io';
 
-import 'package:robisalesautomation/utility/mycolors.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class Attendance extends StatefulWidget {
   const Attendance({super.key});
@@ -66,8 +68,75 @@ class _AttendanceState extends State<Attendance> {
     }
   }
 
-  void navigateToHome() {
-    // Implement navigation to home screen
+  // void navigateToHome() async {
+  //   if (imagedata != null && location != null) {
+  //     // Create a Map with the required data
+  //     Map<String, dynamic> requestData = {
+  //       'user_id': 'user_id_here', // Replace with actual user_id
+  //       'do_no': 123, // Replace with actual do_no
+  //       'ip': '127.0.0.1', // Replace with actual IP address
+  //       'latitude': currentPosition!.latitude,
+  //       'longitude': currentPosition!.longitude,
+  //       'milage': 'milage_here', // Replace with actual milage
+  //       'image': imagedata,
+  //     };
+
+  //     // Send the POST request
+  //     final response = await http.post(
+  //       Uri.parse('url_to_your_api.php'), // Replace with actual URL of your API
+  //       headers: <String, String>{
+  //         'Content-Type': 'application/json; charset=UTF-8',
+  //       },
+  //       body: jsonEncode(requestData),
+  //     );
+
+  //     // Handle the response
+  //     if (response.statusCode == 200) {
+  //       // If server returns an OK response, navigate to home screen
+  //       print('Data submitted successfully');
+  //       // Navigate to home screen
+  //     } else {
+  //       // If the server did not return a 200 OK response,
+  //       // print the error message.
+  //       print('Failed to submit data: ${response.body}');
+  //     }
+  //   } else {
+  //     // If either image or location is missing, show an error message
+  //     print('Please capture an image and wait for the location to be fetched.');
+  //   }
+  // }
+
+  void navigateToHome() async {
+    if (imagedata != null && location != null) {
+      try {
+        FormData formData = FormData.fromMap({
+          'user_id': '100004', // Replace with actual user_id
+          'do_no': 123, // Replace with actual do_no
+          'ip': '127.0.0.1', // Replace with actual IP address
+          'latitude': currentPosition!.latitude,
+          'longitude': currentPosition!.longitude,
+          'milage': 'milage_here', // Replace with actual milage
+          'image': await MultipartFile.fromFile(imagedata!),
+        });
+        print(imagedata);
+        Dio dio = Dio();
+        Response response = await dio.post(
+          'https://starlineerp.com/CloudERP/sec_mod/api/api_ss_attendance.php', // Replace with actual URL of your API
+          data: formData,
+        );
+
+        if (response.statusCode == 200) {
+          print(response.data);
+          // Navigate to home screen
+        } else {
+          print('Failed to submit data: ${response.data}');
+        }
+      } catch (e) {
+        print('Error: $e');
+      }
+    } else {
+      print('Please capture an image and wait for the location to be fetched.');
+    }
   }
 
   void handleImageUpload() async {
@@ -99,7 +168,7 @@ class _AttendanceState extends State<Attendance> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Attendance"),
-        backgroundColor: Appcolors.primary,
+        backgroundColor: Colors.blue,
         toolbarHeight: 40,
       ),
       body: Column(
